@@ -37,7 +37,7 @@ export function renderProposta(o,el=document.getElementById("proposta"),onClose)
 <p class="pp-tot">Valor total da proposta: <b>${brl(o.total)}</b> <small>(média ${brl(o.totalPorM2)}/m²)</small></p>
 <h3>4. Condições comerciais</h3><ul>${C.condicoes.map(x=>`<li>${x}</li>`).join("")}</ul>
 <h3>5. Aceite</h3><p>Declaro estar de acordo com os termos desta proposta.</p>
-<div class="pp-sig"><div>_________________________________<br>Assinatura do contratante</div><div><img src="assets/img/logo-fsantos.png" alt=""><br><b>ENG. CIVIL FRANCIRLEY PEREIRA SANTOS</b><br>CREA: ${C.crea}<br>${C.empresa}<br>Fone: ${C.fone} | ${C.email}</div></div>
+<div class="pp-sig"><div class="pp-sb"><div class="pp-sl"></div><div class="pp-line"></div><div class="pp-st">Assinatura do contratante</div></div><div class="pp-sb"><div class="pp-sl"><img src="assets/img/logo-fsantos.png" alt=""></div><div class="pp-line"></div><div class="pp-st"><b>ENG. CIVIL FRANCIRLEY PEREIRA SANTOS</b><br>CREA: ${C.crea}<br>${C.empresa}<br>Fone: ${C.fone} | ${C.email}</div></div></div>
 <div class="pp-act noprint"><button class="btn" data-a="print">Imprimir / salvar PDF</button><button class="btn ghost" data-a="close">Fechar</button></div>`;
   el.querySelector('[data-a="print"]').onclick=()=>print();el.querySelector('[data-a="close"]').onclick=()=>{document.body.classList.remove("pp-open");onClose&&onClose()};
   document.body.classList.add("pp-open");scrollTo(0,0)}
