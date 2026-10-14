@@ -58,3 +58,4 @@ footer a.restrito{color:var(--mut);opacity:.6;font-size:.8rem;text-decoration:no
 #proposta .pp-sig{display:flex;flex-direction:column;align-items:center;gap:2.5rem;break-inside:auto;page-break-inside:auto}
 #proposta .pp-sb{width:60%;max-width:380px;break-inside:avoid;page-break-inside:avoid}
 #proposta .pp-sb:first-child .pp-sl{height:40px}#proposta .pp-line{width:100%}
+.hlink{margin-top:1rem}.hlink a{color:#fff;text-shadow:0 1px 6px #000;font-weight:600}
