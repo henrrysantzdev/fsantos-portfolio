@@ -1,0 +1,48 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isAdmin() {
+      return request.auth != null
+        && request.auth.token.email == 'leyfps@gmail.com'
+        && request.auth.token.email_verified == true;
+    }
+
+    function str(v, minLen, maxLen) {
+      return v is string && v.size() >= minLen && v.size() <= maxLen;
+    }
+
+    function validCliente(c) {
+      return c is map
+        && c.keys().hasOnly(['nome', 'telefone', 'email'])
+        && c.keys().hasAll(['nome', 'telefone', 'email'])
+        && str(c.nome, 1, 120)
+        && str(c.telefone, 0, 40)
+        && str(c.email, 0, 120);
+    }
+
+    function validNovoOrcamento(d) {
+      return d.keys().hasOnly(['numero', 'cliente', 'projeto', 'cidade', 'itens', 'total', 'totalPorM2', 'status', 'createdAt'])
+        && d.keys().hasAll(['numero', 'cliente', 'projeto', 'cidade', 'itens', 'total', 'totalPorM2', 'status', 'createdAt'])
+        && d.numero is string && d.numero.matches('^ORC-[0-9]{4}-[A-Z0-9]{4}$')
+        && validCliente(d.cliente)
+        && str(d.projeto, 0, 160)
+        && str(d.cidade, 0, 100)
+        && d.itens is list && d.itens.size() >= 1 && d.itens.size() <= 10
+        && d.total is number && d.total >= 0 && d.total <= 100000000
+        && d.totalPorM2 is number && d.totalPorM2 >= 0 && d.totalPorM2 <= 100000
+        && d.status == 'novo'
+        && d.createdAt == request.time;
+    }
+
+    match /orcamentos/{orcamentoId} {
+      allow create: if validNovoOrcamento(request.resource.data);
+      allow read, update, delete: if isAdmin();
+    }
+
+    // Todo o resto fica fechado.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
