@@ -1,0 +1,34 @@
+---
+description: Critérios de acessibilidade, mídia, movimento e validação de interface
+globs: "src/**/*.tsx,src/**/*.css,index.html"
+alwaysApply: false
+---
+
+# Acessibilidade e interação
+
+- Usar links para navegação e botões para ações. Não usar `div` ou `Card` com apenas `onClick` para abrir projetos; oferecer um botão ou link com nome compreensível e acesso por teclado.
+- Manter foco visível, ordem de tabulação lógica e rótulos associados aos campos. Ícones sem texto precisam de nome acessível; placeholders não substituem labels.
+- Reutilizar o Dialog existente para galerias/modais, com título, foco inicial, contenção e retorno do foco ao fechar, Escape e bloqueio da rolagem de fundo. Validar o comportamento, não apenas a aparência.
+- Representar o estado de filtros e controles com atributos apropriados, como `aria-pressed`. Mostrar erros e sucesso em texto junto à ação; não depender apenas da cor.
+- Manter hierarquia de títulos, texto alternativo útil e contraste legível. Usar alvos de toque confortáveis, preferencialmente 44px; indicadores visuais pequenos podem ter área clicável maior.
+- No menu móvel, manter todos os destinos e fechar após escolher. Âncoras devem deixar o título visível abaixo do cabeçalho fixo.
+- Conter rolagem horizontal em tabelas quando necessária; não esconder overflow global para mascarar conteúdo cortado.
+
+# Mídia e movimento
+
+- Definir dimensões ou proporção das imagens para evitar saltos. Usar versões adequadas ao espaço exibido e formatos otimizados quando disponíveis, preservando os originais.
+- Priorizar a imagem principal visível; aplicar lazy loading às imagens abaixo da dobra. Evitar montar todas as imagens grandes do carrossel como fundos desde a abertura.
+- Incluir animação cinematográfica ou sequência de frames apenas quando solicitada. Prever imagem estática, carregamento progressivo e limite de mídia compatível com celular; medir tamanho e requisições antes de entregar.
+- Com `prefers-reduced-motion`, desativar movimentos não essenciais e autoplay, em vez de apenas diminuir sua velocidade.
+- Carrossel automático precisa de pausa explícita e pausa durante interação por teclado. Não depender só de hover.
+- Não bloquear a rolagem nativa nem esconder informações atrás de uma animação. Limpar timers/listeners em efeitos e evitar atualizar toda a página React a cada frame.
+
+# Verificação proporcional
+
+- Após implementação, executar `npm run build` (TypeScript + Vite). O projeto não possui scripts de lint/test no momento da criação destas regras; não alegar que foram executados.
+- Para mudanças visuais, conferir no navegador as áreas afetadas em aproximadamente 390px e 1280px, além de uma largura estreita de 320px quando houver risco de overflow.
+- Verificar teclado, menu, filtros, abertura/fechamento da galeria, foco, legibilidade, links e estados do formulário conforme a alteração. Build passando não comprova qualidade visual.
+- Se tokens ou componentes compartilhados mudarem, verificar também Ferramentas, acesso ao Painel e impressão afetada. Não efetuar gravações de teste em produção.
+- Conferir console e assets ausentes. Medir rede/carregamento quando mídia ou animação mudar; não afirmar ganho de performance sem evidência.
+- Não criar testes automatizados para mudanças cosméticas triviais. Para lógica de interação alterada, verificar os comportamentos relevantes sem testar detalhes internos.
+- Comparar o diff final com o escopo e relatar o que mudou, verificações feitas e limitações reais. Se não houver navegador disponível, informar que a validação visual ficou pendente.

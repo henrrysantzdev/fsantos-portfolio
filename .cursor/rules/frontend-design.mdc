@@ -1,0 +1,23 @@
+---
+description: Direção visual para o portfólio de engenharia, sem impor um redesign não solicitado
+globs: "src/**/*.tsx,src/**/*.css"
+alwaysApply: false
+---
+
+# Direção visual e conteúdo
+
+- O site é o portfólio da FSantos Engenharia, de Francirley Pereira Santos, em Manaus. Conferir nomes e informações nos dados existentes; não inferir a marca pelo nome da pasta.
+- Priorizar entendimento dos serviços, qualidade dos projetos e contato. Efeitos visuais devem apoiar esses objetivos.
+- Em redesign autorizado, definir brevemente composição, tipografia, paleta e hierarquia antes de codificar. Usar referências fornecidas como direção, sem copiar marcas ou inventar conteúdo.
+- Em ajustes pontuais, respeitar a linguagem existente e o escopo. Não redesenhar outras seções como consequência de uma preferência pessoal.
+- Dar às imagens de projetos espaço e nitidez. Não aplicar desfoque ou sobreposição escura intensa por padrão para acomodar texto; buscar posicionamento e contraste legíveis.
+- Definir uma ação visualmente principal por seção. Evitar que orçamento, contato, ferramentas e anúncios disputem o mesmo destaque na abertura; preservar seus destinos.
+- Evitar repetir o logo grande na abertura quando já estiver no cabeçalho, salvo direção explícita. Usar o espaço principal para apresentar o trabalho.
+- Usar escala consistente de títulos, texto, espaçamento e largura de leitura. Variar a composição de acordo com o conteúdo; não transformar todas as seções em cartões idênticos.
+- Manter o layout legível sem animação. Não recorrer automaticamente a vidro, gradientes, sombras e badges para dar aparência de acabamento.
+- Nas capas de projetos, preferir foto ou render existente que represente o trabalho. Pranchas completas pertencem à visualização detalhada quando ilegíveis como miniatura.
+- Preservar acesso a todos os projetos e arquivos. Destacar uma seleção não significa excluir o restante. Não cortar informação técnica na visualização ampliada; usar `object-contain` quando necessário.
+- Manter fotos, renders e imagens conceituais identificáveis. Não apresentar imagens geradas como obras executadas nem inventar clientes, depoimentos, CREA, números ou qualificações.
+- Novas fotos, textos, marca e alteração de títulos dependem do escopo autorizado. Se faltar material, registrar a necessidade; não preencher com afirmações fictícias.
+- Projetar para celular desde o início: conteúdo na ordem de leitura, controles acessíveis e nenhum texto dependente de hover.
+- Preservar a identidade entre páginas sem aplicar o tratamento cinematográfico do portfólio ao painel, às tabelas ou aos documentos impressos.

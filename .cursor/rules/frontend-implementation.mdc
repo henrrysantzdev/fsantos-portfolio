@@ -1,0 +1,22 @@
+---
+description: Escopo e implementação de mudanças no front-end da FSantos Engenharia
+globs: "src/**/*.tsx,src/**/*.css,index.html"
+alwaysApply: false
+---
+
+# Escopo e implementação
+
+- Aplicar estas regras a mudanças de apresentação e interação, não a alterações de negócio.
+- Distinguir conversa, análise e implementação. Não alterar o site quando o pedido for apenas avaliar referências ou escrever regras.
+- Antes de editar, conferir o diff existente e preservar alterações do usuário. Não restaurar arquivos nem concluir migrações por conta própria.
+- Respeitar `.specify/memory/constitution.md`. Não publicar, fazer commit ou push sem pedido explícito.
+- `specs/001-padronizar-visual/` descreve uma entrega específica de padronização. Suas restrições de paleta e layout não definem todo redesign futuro. Se a nova tarefa contrariar aquela entrega, explicitar o conflito e seguir o escopo atual autorizado, sem reescrever o histórico silenciosamente.
+- Manter React, TypeScript estrito, Vite, Tailwind e os componentes existentes. Não migrar para Next.js nem instalar bibliotecas só para reproduzir uma referência.
+- Usar `src/index.css` como fonte dos tokens de cor, fonte, raio e tema. Evitar cores soltas em componentes; mudanças globais precisam ser verificadas nas outras telas afetadas.
+- Reutilizar `src/components/ui/` e suas variantes. Os componentes atuais usam Base UI; não presumir APIs de outra biblioteca, como `asChild`, sem conferir o componente local.
+- Manter páginas em `src/pages/`, composição institucional em `src/components/home/` e estrutura compartilhada em `src/components/layout/`. Extrair componentes quando houver responsabilidade clara ou reuso real.
+- Preservar o carregamento sob demanda de Ferramentas, Painel e Firebase. Não trazer módulos pesados para a abertura sem necessidade.
+- Preservar dados em `src/data/projects.ts`, fórmulas e preços em `src/lib/orcamento.ts` e `src/lib/tools-engine.ts`, autenticação e permissões. Um redesign não autoriza mudar esses contratos.
+- Formulários podem mudar de aparência sem alterar valores, validação, envio, status, cálculo ou impressão. Não usar dados reais de clientes em exemplos e capturas.
+- Preservar rotas `/`, `/ferramentas`, `/painel`, âncoras e links públicos, salvo pedido específico de reorganização. Não remover softwares ou ferramentas para simplificar o layout.
+- Não editar `dist/` nem `node_modules/` manualmente. Alterar fontes e assets; gerar a saída com o comando de build existente quando necessário.

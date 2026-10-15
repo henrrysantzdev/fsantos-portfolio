@@ -1,29 +1,25 @@
 # FSantos Engenharia — site/portfólio
 
-Site estático (HTML/CSS/JS puro, sem build), pronto para GitHub Pages.
+Site em React, Vite, Tailwind CSS e shadcn/ui.
 
-- `index.html`: portfólio, softwares e **Orçamento online** (salva em Firestore `orcamentos`)
-- `painel.html`: **Área restrita** (login Google, só `leyfps@gmail.com`)
-- `assets/js/firebase-config.js`: configuração web do Firebase (pública)
-- `assets/js/orcamento.js`: parâmetros de preço (`ORC_CONFIG`, da planilha `precificacao.xlsx`) e gerador da proposta
-- Regras de segurança: `firestore.rules` (publicar no console do Firebase)
+- `/` portfólio, softwares e orçamento online (Firestore `orcamentos`)
+- `/ferramentas` calculadoras de pré-dimensionamento
+- `/painel` área restrita (login Google, só `leyfps@gmail.com`)
+- `firestore.rules` regras de segurança (publicar no console do Firebase)
 
-## Testar localmente
-
-O login com Google **não funciona abrindo o arquivo direto (file://)**. Sirva a pasta por HTTP:
+## Desenvolvimento
 
 ```powershell
-cd D:\caminho\para\site
-python -m http.server 8080
+npm install
+npm run dev
 ```
 
-Abra http://localhost:8080/ e http://localhost:8080/painel.html
-(`localhost` já vem autorizado no Firebase Authentication por padrão).
+Abra o endereço que o Vite mostrar (em geral http://localhost:5173/). O login com Google precisa de HTTP, não de `file://`.
 
-## Configuração no Console do Firebase (projeto fsantos-portfolio)
+## Build
 
-1. **Authentication > Sign-in method**: ative o provedor **Google**.
-2. **Authentication > Settings > Authorized domains**: adicione `leysantos.github.io` (e o domínio próprio, se houver).
-3. **Firestore Database**: banco `(default)` em `southamerica-east1`.
-4. **Firestore > Regras**: cole o conteúdo de `firestore.rules` e publique.
-5. Painel: a lista é ordenada por `createdAt` (índice de campo único, criado automaticamente).
+```powershell
+npm run build
+```
+
+A pasta `dist` é o que a Netlify publica (`netlify.toml`).
