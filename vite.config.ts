@@ -48,6 +48,8 @@ function portfolioDataPlugin(): Plugin {
 
 export default defineConfig({
   plugins: [portfolioDataPlugin(), react(), tailwindcss()],
+  // Só arquivos com hash no nome vão para /static, que o netlify.toml cacheia como imutável; public/assets não tem hash.
+  build: { assetsDir: "static" },
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "./src"),
