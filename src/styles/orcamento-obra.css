@@ -1,0 +1,798 @@
+/* Orçamento estimativo de obra: classes usadas pelo HTML gerado em src/lib/obra/obra-app.ts. */
+.obra-app [hidden] {
+  display: none !important;
+}
+.obra-app.simples .adv-only,
+.obra-app:not(.simples) .s-only,
+.obra-app.cont .nc,
+.obra-app:not(.cont) .cont-only {
+  display: none !important;
+}
+
+.obra-app fieldset {
+  min-width: 0;
+  margin: 0 0 1.25rem;
+  border: 0;
+  border-radius: 1rem;
+  background: var(--card);
+  padding: 1.1rem 1rem 1.25rem;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 25%);
+}
+.obra-app legend {
+  float: left;
+  width: 100%;
+  margin-bottom: 0.9rem;
+  padding: 0;
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--foreground);
+  white-space: normal;
+}
+.obra-app legend + * {
+  clear: both;
+}
+.obra-app legend small {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--muted-foreground);
+}
+@media (min-width: 768px) {
+  .obra-app fieldset {
+    padding: 1.5rem;
+  }
+}
+.obra-app .ogrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.8rem 1rem;
+  align-items: end;
+}
+.obra-app .ogrid > label {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.35rem;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+.obra-app .ogrid > label .lt {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.obra-app .ogrid > label .lt small {
+  margin-left: 0.2rem;
+  font-size: 0.78em;
+  opacity: 0.8;
+}
+.obra-app .ogrid > label > input:not([type="checkbox"]),
+.obra-app .ogrid > label > select {
+  height: 2.75rem;
+}
+.obra-app .ck > span,
+.obra-app .disc label {
+  display: flex;
+  min-height: 2.75rem;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--foreground);
+}
+.obra-app .disc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.2rem;
+  margin-top: 0.6rem;
+}
+.obra-app input[type="checkbox"] {
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: var(--primary);
+}
+.obra-app input[readonly] {
+  opacity: 0.7;
+}
+.obra-app select,
+.obra-app .obamb input {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  background: color-mix(in oklab, var(--input) 30%, transparent);
+  padding: 0 0.6rem;
+  color: var(--foreground);
+  font: inherit;
+  font-size: 0.875rem;
+}
+.obra-app select {
+  height: 2.75rem;
+}
+.obra-app select option {
+  background: var(--popover);
+  color: var(--popover-foreground);
+}
+.obra-app .obamb input,
+.obra-app .obamb select {
+  height: 2.25rem;
+}
+.obra-app select:focus-visible,
+.obra-app .obamb input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 1px;
+}
+.obra-app .obamb input[aria-invalid="true"] {
+  border-color: var(--destructive);
+}
+.obra-app .onote {
+  margin-top: 0.6rem;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+.obra-app .onote.warn {
+  color: var(--primary);
+}
+.obra-app .omsg {
+  margin: 0.4rem 0;
+  font-size: 0.9rem;
+}
+.obra-app .omsg:empty {
+  display: none;
+}
+.obra-app .omsg.ok {
+  color: #2ee59d;
+}
+.obra-app .omsg.err {
+  color: var(--destructive);
+}
+.obra-app .linkbtn {
+  border: 0;
+  background: none;
+  padding: 0;
+  color: var(--primary);
+  text-decoration: underline;
+  cursor: pointer;
+  font: inherit;
+}
+.obra-app .btn {
+  display: inline-flex;
+  height: 2.25rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--primary);
+  border-radius: var(--radius-lg);
+  background: var(--primary);
+  padding: 0 0.8rem;
+  color: var(--primary-foreground);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.obra-app .btn.ghost {
+  border-color: var(--input);
+  background: transparent;
+  color: var(--foreground);
+}
+.obra-app .btn.danger {
+  border-color: var(--destructive);
+  background: transparent;
+  color: var(--destructive);
+}
+.obra-app .m-act {
+  display: flex;
+  gap: 0.3rem;
+}
+
+/* Conta */
+.obra-app #au-out {
+  max-width: 520px;
+}
+.obra-app #au-out > p {
+  margin: 0 0 0.8rem;
+}
+.obra-app #au-google {
+  width: 100%;
+  height: 3rem;
+}
+.obra-app .autabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  margin: 0 0 0.9rem;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+}
+.obra-app .autabs button {
+  height: 2.75rem;
+  border: 0;
+  background: transparent;
+  color: var(--foreground);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.obra-app .autabs button + button {
+  border-left: 1px solid var(--input);
+}
+.obra-app .autabs button.on {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+.obra-app #au-out .ogrid {
+  grid-template-columns: 1fr;
+  margin-bottom: 0.9rem;
+}
+.obra-app #au-out > p:has(#au-go) {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Modo */
+.obra-app .omodo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+}
+.obra-app .omodo button {
+  min-height: 2.75rem;
+  border: 1px solid var(--primary);
+  border-radius: 999px;
+  background: transparent;
+  padding: 0 1.1rem;
+  color: var(--foreground);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.obra-app .omodo button.on {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+.obra-app .omodo small {
+  flex-basis: 100%;
+  color: var(--muted-foreground);
+}
+
+/* Ambientes */
+.obra-app .otab {
+  position: relative;
+  overflow-x: auto;
+}
+.obra-app .obamb {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+.obra-app .obamb th {
+  padding: 0.3rem;
+  text-align: left;
+  font-weight: 600;
+  color: var(--muted-foreground);
+}
+.obra-app .obamb td {
+  padding: 0.2rem 0.3rem;
+}
+.obra-app .obamb .a-l,
+.obra-app .obamb .a-c {
+  max-width: 90px;
+}
+.obra-app .obamb .a-a {
+  white-space: nowrap;
+}
+.obra-app .obamb .a-p:disabled {
+  opacity: 0.6;
+}
+.obra-app .obamb .rm {
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  background: none;
+  color: var(--destructive);
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+.obra-app .obamb.nopav .c-pav,
+.obra-app .obamb.nopav td:has(> .a-p) {
+  display: none;
+}
+.obra-app.simples .obamb input,
+.obra-app.simples .obamb select {
+  opacity: 0.8;
+}
+.obra-app.simples .obamb .rm {
+  display: none;
+}
+.obra-app .amb-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.6rem;
+}
+.obra-app .amb-actions select {
+  width: auto;
+  height: 2.25rem;
+}
+
+/* Resultado */
+.obra-app .obres {
+  margin-top: 1.5rem;
+}
+.obra-app .oid {
+  margin: 0.2rem 0 0.8rem;
+  border-left: 3px solid var(--primary);
+  border-radius: var(--radius-md);
+  background: rgb(234 132 39 / 10%);
+  padding: 0.55rem 0.8rem;
+}
+.obra-app .obcards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 0.8rem;
+}
+.obra-app .obcards div {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid transparent;
+  border-radius: 0.75rem;
+  background: var(--card);
+  padding: 0.8rem 1rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 20%);
+}
+.obra-app .obcards span,
+.obra-app .obcards small {
+  font-size: 0.85rem;
+  color: var(--muted-foreground);
+}
+.obra-app .obcards b {
+  font-size: 1.25rem;
+}
+.obra-app .obcards .hi {
+  border-color: var(--primary);
+  background: var(--secondary);
+}
+.obra-app .obcards .hi b {
+  font-size: 1.45rem;
+  color: var(--primary);
+}
+.obra-app .obres h3,
+.obra-app #tab h3,
+.obra-app .obmeus h3 {
+  margin: 1.4rem 0 0.6rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+.obra-app .obbars {
+  display: grid;
+  gap: 0.25rem;
+}
+.obra-app .obb {
+  display: grid;
+  grid-template-columns: 230px 1fr 60px;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+}
+.obra-app .obb i {
+  display: block;
+  height: 14px;
+  border-radius: 7px;
+  background: linear-gradient(90deg, var(--primary) var(--w), rgb(255 255 255 / 8%) var(--w));
+}
+.obra-app .obb b {
+  text-align: right;
+}
+.obra-app .obact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+.obra-app .obreg {
+  margin: 1rem 0;
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  padding: 0.7rem 1rem;
+}
+.obra-app .obreg summary {
+  min-height: 2.75rem;
+  align-content: center;
+  color: var(--primary);
+  cursor: pointer;
+}
+.obra-app .obreg ol {
+  padding-left: 1.2rem;
+  font-size: 0.88rem;
+  list-style: decimal;
+}
+.obra-app .obreg li {
+  margin-bottom: 0.4rem;
+}
+.obra-app .obt {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+.obra-app .obt th {
+  position: sticky;
+  top: 0;
+  background: var(--secondary);
+  padding: 0.4rem;
+  text-align: left;
+  color: var(--primary);
+}
+.obra-app .obt td {
+  border-bottom: 1px solid var(--border);
+  padding: 0.35rem 0.4rem;
+  vertical-align: top;
+}
+.obra-app .obt td:nth-child(n + 4) {
+  text-align: right;
+  white-space: nowrap;
+}
+.obra-app .obt td:nth-child(4) {
+  text-align: center;
+}
+.obra-app .obt small {
+  display: block;
+  color: var(--muted-foreground);
+}
+.obra-app .obt .grp td {
+  background: var(--secondary);
+  font-weight: 700;
+  color: var(--primary);
+}
+.obra-app .obt .grp td:last-child,
+.obra-app .obt .sub td,
+.obra-app .obt .tot td {
+  text-align: right;
+  font-weight: 700;
+}
+.obra-app .obt .tot td {
+  font-size: 1rem;
+  color: var(--primary);
+}
+.obra-app .obmeus {
+  margin: 1.5rem 0;
+}
+.obra-app .obmeus tbody tr {
+  cursor: pointer;
+}
+@media (max-width: 700px) {
+  .obra-app .obcards {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+  .obra-app .obcards b {
+    font-size: 1.05rem;
+    white-space: nowrap;
+  }
+  .obra-app .obcards .hi b {
+    font-size: 1.15rem;
+  }
+  .obra-app .obb {
+    grid-template-columns: 1fr 60px;
+  }
+  .obra-app .obb i {
+    order: 3;
+    grid-column: 1 / -1;
+  }
+  .obra-app #au-out > p:has(#au-go) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.4rem;
+  }
+  /* Abaixo de 16px o Safari do iPhone dá zoom ao focar o campo. */
+  .obra-app select,
+  .obra-app textarea,
+  .obra-app input:not([type="checkbox"]):not([type="radio"]):not([type="range"]) {
+    font-size: 16px;
+  }
+  .obra-app .obamb input,
+  .obra-app .obamb select,
+  .obra-app .btn {
+    height: 2.75rem;
+  }
+  .obra-app small,
+  .obra-app .ogrid > label .lt small {
+    font-size: 0.75rem;
+  }
+}
+
+/* Documento do orçamento (tela, impressão e PDF compartilhado). */
+.obra-proposta {
+  display: none;
+}
+body.pp-open #root > :not(.obra-proposta) {
+  display: none !important;
+}
+body.pp-open {
+  background: #fff;
+}
+body.pp-open .obra-proposta {
+  display: block;
+  max-width: 190mm;
+  margin: auto;
+  background: #fff;
+  padding: 12mm;
+  color: #111;
+  font-family: Georgia, serif;
+  font-size: 10pt;
+  line-height: 1.5;
+}
+.obra-proposta h2 {
+  margin: 0.6rem 0 0;
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 1.4rem;
+  color: #10253f;
+}
+.obra-proposta h3 {
+  margin: 1.1rem 0 0.4rem;
+  border-bottom: 2px solid #f6a04b;
+  font-family: var(--font-sans);
+  font-size: 11.5pt;
+  font-weight: 600;
+  color: #10253f;
+}
+.obra-proposta .pp-sub {
+  margin-top: 0;
+  text-align: center;
+}
+.obra-proposta .pp-flag {
+  border: 1px dashed #a14b00;
+  padding: 0.3rem;
+  text-align: center;
+  font-weight: 700;
+  color: #a14b00;
+}
+.obra-proposta .pp-t {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+.obra-proposta .pp-t th,
+.obra-proposta .pp-t td {
+  border: 1px solid #bbb;
+  padding: 0.2rem 0.35rem;
+}
+.obra-proposta .pp-t th {
+  background: #10253f;
+  color: #fff;
+}
+.obra-proposta .pp-tot {
+  text-align: right;
+  font-size: 1.1rem;
+}
+.obra-proposta .pp-amb,
+.obra-proposta .onote {
+  font-size: 8.5pt;
+  color: #333;
+}
+.obra-proposta .pp-reg {
+  padding-left: 1.1rem;
+  font-size: 8pt;
+  list-style: disc;
+}
+.obra-proposta .otab {
+  overflow: visible;
+}
+.obra-proposta .obt {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 7.6pt;
+}
+.obra-proposta .obt th {
+  background: #10253f;
+  padding: 0.2rem 0.25rem;
+  text-align: left;
+  color: #fff;
+}
+.obra-proposta .obt td {
+  border-bottom: 1px solid #ddd;
+  padding: 0.15rem 0.25rem;
+  vertical-align: top;
+  color: #111;
+}
+.obra-proposta .obt td:nth-child(n + 4) {
+  text-align: right;
+  white-space: nowrap;
+}
+.obra-proposta .obt small {
+  display: block;
+  color: #555;
+}
+.obra-proposta .obt tr {
+  break-inside: avoid;
+}
+.obra-proposta .obt .grp td {
+  background: #fde9d4;
+  font-weight: 700;
+  color: #10253f;
+}
+.obra-proposta .obt .grp td:last-child,
+.obra-proposta .obt .sub td,
+.obra-proposta .obt .tot td {
+  text-align: right;
+  font-weight: 700;
+  color: #10253f;
+}
+.obra-proposta .pb-frame {
+  width: 100%;
+  border-collapse: collapse;
+}
+.obra-proposta .pb-frame > thead > tr > td,
+.obra-proposta .pb-frame > tfoot > tr > td,
+.obra-proposta .pb-frame > tbody > tr > td {
+  border: 0;
+  padding: 0;
+}
+.obra-proposta .pb-h {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  border-bottom: 3px solid #f6a04b;
+  background: #10253f;
+  padding: 7px 12px;
+  color: #fff;
+}
+.obra-proposta .pb-h img {
+  height: 40px;
+  width: auto;
+  border-radius: 6px;
+  background: #fff;
+  padding: 4px 8px;
+}
+.obra-proposta .pb-ht {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  font-family: var(--font-sans);
+  font-size: 8.5pt;
+  color: #c9d3e3;
+}
+.obra-proposta .pb-ht strong {
+  font-size: 11.5pt;
+  color: #f6a04b;
+}
+.obra-proposta .pb-hm {
+  text-align: right;
+  font-family: var(--font-sans);
+  font-size: 8pt;
+  line-height: 1.35;
+}
+.obra-proposta .pb-hm b {
+  font-size: 9pt;
+  color: #f6a04b;
+}
+.obra-proposta .pb-f {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 8px;
+  border-top: 2px solid #f6a04b;
+  padding: 4px 2px 0;
+  font-size: 7.5pt;
+  color: #10253f;
+}
+.obra-proposta .pb-fn {
+  font-style: italic;
+  color: #7a4a00;
+}
+.obra-proposta .pp-sig {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2.2rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+.obra-proposta .pp-sb {
+  display: flex;
+  width: 60%;
+  max-width: 380px;
+  flex-direction: column;
+  align-items: center;
+  break-inside: avoid;
+}
+.obra-proposta .pp-sl {
+  display: flex;
+  height: 48px;
+  align-items: flex-end;
+  justify-content: center;
+  margin-bottom: 0.4rem;
+}
+.obra-proposta .pp-sl img {
+  height: 36px;
+}
+.obra-proposta .pp-line {
+  width: 100%;
+  margin-bottom: 0.4rem;
+  border-top: 1px solid #111;
+}
+.obra-proposta .pp-act {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  font-family: var(--font-sans);
+}
+.obra-proposta .pp-act .btn {
+  height: 2.5rem;
+  border: 1px solid #10253f;
+  border-radius: 0.5rem;
+  background: #10253f;
+  padding: 0 1rem;
+  color: #fff;
+  cursor: pointer;
+}
+.obra-proposta .pp-act .btn.ghost {
+  background: #fff;
+  color: #10253f;
+}
+@media screen and (max-width: 700px) {
+  body.pp-open .obra-proposta {
+    padding: 4mm;
+  }
+  .obra-proposta .pb-frame {
+    table-layout: fixed;
+  }
+  .obra-proposta .pb-h {
+    flex-wrap: wrap;
+  }
+  .obra-proposta .pb-h img {
+    height: 30px;
+  }
+  .obra-proposta .pb-ht {
+    min-width: 0;
+    flex-basis: 100%;
+    order: 3;
+  }
+  .obra-proposta .pb-hm {
+    margin-left: auto;
+  }
+  .obra-proposta .otab {
+    overflow-x: auto;
+  }
+  .obra-proposta .pb-f {
+    flex-direction: column;
+  }
+}
+.html2pdf__overlay,
+.html2pdf__container {
+  display: block !important;
+  visibility: visible !important;
+}
+@media print {
+  @page {
+    size: A4;
+    margin: 10mm 10mm 14mm;
+  }
+  body.pp-open .obra-proposta {
+    max-width: none;
+    padding: 0;
+  }
+  .obra-proposta * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .obra-proposta .pb-frame > thead {
+    display: table-header-group;
+  }
+  .obra-proposta .pb-frame > tfoot {
+    display: table-footer-group;
+  }
+  .obra-proposta .noprint {
+    display: none !important;
+  }
+}

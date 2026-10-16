@@ -21,15 +21,15 @@ export function PropostaView({
   return (
     <div className="proposta-root fixed inset-0 z-50 overflow-auto bg-white text-neutral-900">
       <article className="mx-auto max-w-3xl px-6 py-10 font-serif leading-relaxed">
-        <header className="flex items-center gap-4 border-b-4 border-[#0b1a30] pb-3">
-          <img src="/assets/img/logo-fsantos.png" alt="" className="h-16" />
+        <header className="flex items-center gap-4 border-b-4 border-[#10253f] pb-3">
+          <img src="/assets/img/logo-kf.png" alt="" className="h-16" />
           <div>
             <strong>{ORC_CONFIG.empresa}</strong>
             <br />
             {ORC_CONFIG.responsavel} — CREA {ORC_CONFIG.crea}
           </div>
           {orcamento.numero && (
-            <div className="ml-auto rounded-md border-2 border-primary px-2 py-1 font-sans text-sm font-bold text-[#0b1a30]">
+            <div className="ml-auto rounded-md border-2 border-primary px-2 py-1 font-sans text-sm font-bold text-[#10253f]">
               Nº {orcamento.numero}
             </div>
           )}
@@ -37,7 +37,7 @@ export function PropostaView({
         <p className="mt-4 border border-dashed border-amber-800 px-2 py-1 text-center font-sans text-sm font-semibold text-amber-800">
           Proposta preliminar — sujeita a confirmação
         </p>
-        <h2 className="mt-4 text-center font-sans text-2xl font-semibold text-[#0b1a30]">PROPOSTA DE PREÇO</h2>
+        <h2 className="mt-4 text-center font-sans text-2xl font-semibold text-[#10253f]">PROPOSTA DE PREÇO</h2>
         <p className="text-center">Elaboração de Projeto de Arquitetura e Projetos Complementares</p>
         <p className="mt-4">
           {ORC_CONFIG.local}, {hoje}
@@ -57,26 +57,26 @@ export function PropostaView({
             </>
           ) : null}
         </p>
-        <h3 className="mt-6 border-b-2 border-primary font-sans text-lg text-[#0b1a30]">1. Objeto</h3>
+        <h3 className="mt-6 border-b-2 border-primary font-sans text-lg text-[#10253f]">1. Objeto</h3>
         <p>A presente proposta tem por objeto a elaboração dos projetos de arquitetura e complementares para a obra acima indicada, conforme disciplinas e valores descritos abaixo.</p>
-        <h3 className="mt-6 border-b-2 border-primary font-sans text-lg text-[#0b1a30]">2. Área de referência</h3>
+        <h3 className="mt-6 border-b-2 border-primary font-sans text-lg text-[#10253f]">2. Área de referência</h3>
         <p>
           Área construída estimada: <b>{num(area)} m²</b>
           {multi
             ? ` (${orcamento.itens.map((item) => `${item.nome || "Projeto"}: ${num(item.area)} m²`).join("; ")}).`
             : "."}
         </p>
-        <h3 className="mt-6 border-b-2 border-primary font-sans text-lg text-[#0b1a30]">3. Escopo e precificação</h3>
+        <h3 className="mt-6 border-b-2 border-primary font-sans text-lg text-[#10253f]">3. Escopo e precificação</h3>
         {orcamento.itens.map((item, index) => (
           <div key={`${item.nome}-${index}`} className="mt-4">
             {multi && (
-              <h4 className="font-sans font-semibold text-[#0b1a30]">
+              <h4 className="font-sans font-semibold text-[#10253f]">
                 3.{index + 1} {item.nome || `Projeto ${index + 1}`} — {num(item.area)} m²
               </h4>
             )}
             <table className="mt-2 w-full border-collapse text-sm">
               <thead>
-                <tr className="bg-[#0b1a30] text-left text-white">
+                <tr className="bg-[#10253f] text-left text-white">
                   <th className="border border-neutral-400 px-2 py-1">Item</th>
                   <th className="border border-neutral-400 px-2 py-1">Disciplina</th>
                   <th className="border border-neutral-400 px-2 py-1">Coef.</th>
@@ -110,13 +110,13 @@ export function PropostaView({
           Valor total da proposta: <b>{brl(orcamento.total)}</b>{" "}
           <small>(média {brl(orcamento.totalPorM2)}/m²)</small>
         </p>
-        <h3 className="mt-6 border-b-2 border-primary font-sans text-lg text-[#0b1a30]">4. Condições comerciais</h3>
+        <h3 className="mt-6 border-b-2 border-primary font-sans text-lg text-[#10253f]">4. Condições comerciais</h3>
         <ul className="list-disc pl-5">
           {ORC_CONFIG.condicoes.map((condicao) => (
             <li key={condicao}>{condicao}</li>
           ))}
         </ul>
-        <h3 className="mt-6 border-b-2 border-primary font-sans text-lg text-[#0b1a30]">5. Aceite</h3>
+        <h3 className="mt-6 border-b-2 border-primary font-sans text-lg text-[#10253f]">5. Aceite</h3>
         <p>Declaro estar de acordo com os termos desta proposta.</p>
         <div className="mt-12 flex flex-col items-center gap-10">
           <div className="w-full max-w-sm text-center">
@@ -125,7 +125,7 @@ export function PropostaView({
             <p className="mt-2 text-sm">Assinatura do contratante</p>
           </div>
           <div className="w-full max-w-sm text-center text-sm">
-            <img src="/assets/img/logo-fsantos.png" alt="" className="mx-auto mb-2 h-14" />
+            <img src="/assets/img/logo-kf.png" alt="" className="mx-auto mb-2 h-14" />
             <div className="border-t border-black" />
             <p className="mt-2">
               <b>ENG. CIVIL FRANCIRLEY PEREIRA SANTOS</b>

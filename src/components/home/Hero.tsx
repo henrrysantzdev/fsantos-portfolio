@@ -67,7 +67,7 @@ export function Hero() {
           style={{ backgroundImage: `url('${item.src}')`, filter: "blur(3.5px)", transform: "scale(1.06)" }}
         />
       ))}
-      <div className="absolute inset-0 bg-[#0b1a30]/65" />
+      <div className="absolute inset-0 bg-[#10253f]/65" />
       <button
         type="button"
         aria-label="Slide anterior"
@@ -85,8 +85,8 @@ export function Hero() {
         <ChevronRight />
       </button>
       <div className="relative z-10 mx-auto max-w-3xl">
-        <img src="/assets/img/logo-fsantos.png" alt="Logo FSantos Engenharia" className="mx-auto mb-4 w-44 drop-shadow-lg sm:w-52" />
-        <h1 className="text-4xl font-semibold tracking-tight text-balance sm:text-6xl">FSantos Engenharia</h1>
+        <img src="/assets/img/logo-kf.png" alt="Logo KF Engenharia" className="mx-auto mb-4 w-44 drop-shadow-lg sm:w-52" />
+        <h1 className="text-4xl font-semibold tracking-tight text-balance sm:text-6xl">KF Engenharia</h1>
         <p className="mt-3 text-lg text-primary sm:text-xl">Projetos de engenharia e arquitetura em Manaus</p>
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a href="#orcamento" className={cn(buttonVariants({ size: "lg" }), "h-11 px-5")}>

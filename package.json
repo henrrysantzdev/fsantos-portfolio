@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "stitch:css": "npx -y tailwindcss@3.4.17 -c scripts/stitch-tailwind/tailwind.config.cjs -i scripts/stitch-tailwind/input.css -o public/stitch/tailwind.css --minify",
+    "stitch:thumbs": "powershell -ExecutionPolicy Bypass -File scripts/make-thumbs.ps1"
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",

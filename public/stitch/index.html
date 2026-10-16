@@ -1,634 +1,497 @@
 <!DOCTYPE html>
-
-<html class="scroll-smooth" lang="pt-BR"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>FSantos Engenharia &amp; Arquitetura | Manaus - AM</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">
-  tailwind.config = {
-    darkMode: "class",
-    theme: {
-      extend: {
-        colors: {
-          navy: {
-            950: '#050c17',
-            900: '#08121e',
-            850: '#0b192c',
-            800: '#10243e',
-            700: '#1b375b'
-          },
-          primary: '#00677d',
-          'primary-container': '#00b4d8',
-          'primary-fixed-dim': '#4cd6fb',
-          'on-primary': '#ffffff',
-          'on-surface': '#0f172a',
-          'on-surface-variant': '#334155',
-          'surface': '#f8fafc',
-          'surface-container-lowest': '#ffffff',
-          'surface-container-low': '#f1f5f9',
-          'surface-container': '#e2e8f0',
-          'surface-container-high': '#cbd5e1',
-          'amber-tech': '#f59e0b',
-        },
-        fontFamily: {
-          'display-xl': ['Space Grotesk', 'sans-serif'],
-          'headline-lg': ['Space Grotesk', 'sans-serif'],
-          'headline-md': ['Space Grotesk', 'sans-serif'],
-          'headline-sm': ['Space Grotesk', 'sans-serif'],
-          'body-lg': ['Plus Jakarta Sans', 'sans-serif'],
-          'body-md': ['Plus Jakarta Sans', 'sans-serif'],
-          'body-sm': ['Plus Jakarta Sans', 'sans-serif'],
-          'label-lg': ['JetBrains Mono', 'monospace'],
-          'label-md': ['JetBrains Mono', 'monospace'],
-          'label-sm': ['JetBrains Mono', 'monospace'],
-        }
-      }
-    }
-  }
-</script><style>
-  /* Custom Technical Architectural Grid & Glows */
-  .tech-grid-dark {
-    background-image: linear-gradient(to right, rgba(0, 180, 216, 0.05) 1px, transparent 1px),
-                      linear-gradient(to bottom, rgba(0, 180, 216, 0.05) 1px, transparent 1px);
-    background-size: 32px 32px;
-  }
-  .tech-grid-light {
-    background-image: linear-gradient(to right, rgba(0, 103, 125, 0.04) 1px, transparent 1px),
-                      linear-gradient(to bottom, rgba(0, 103, 125, 0.04) 1px, transparent 1px);
-    background-size: 28px 28px;
-  }
-  .glow-cyan {
-    box-shadow: 0 0 40px -10px rgba(0, 180, 216, 0.35);
-  }
-  .glow-card:hover {
-    box-shadow: 0 20px 40px -15px rgba(0, 103, 125, 0.18), 0 0 0 1px rgba(0, 180, 216, 0.35);
-  }
-  /* Organic Scroll Reveal */
-  .reveal {
-    opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .reveal {
-      opacity: 1;
-      transform: none;
-      transition: none;
-    }
-    * {
-      animation-duration: 0.01ms !important;
-      transition-duration: 0.01ms !important;
-    }
-  }
-  /* Architectural Blueprint Line Draw Effect */
-  .blueprint-line {
-    background: linear-gradient(90deg, #00b4d8 0%, #f59e0b 50%, transparent 100%);
-    background-size: 200% 100%;
-    animation: blueprintPulse 6s ease infinite;
-  }
-  @keyframes blueprintPulse {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-  }
-</style><link rel="stylesheet" href="/stitch/mobile.css?v=8"/><script src="/stitch/mobile.js" defer></script><script src="/stitch/portfolio.js?v=3" defer></script></head><body class="bg-surface text-on-surface font-body-md antialiased selection:bg-primary-container selection:text-white overflow-x-hidden"><!-- TOPBAR: Refinada, Clean, Glassmorphism com logo oficial --><header class="site-header">
+<html class="dark scroll-smooth" lang="pt-BR"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>KF Engenharia | Projetos Estruturais e BIM em Manaus</title><link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png"/><link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/><!-- A fonte de ícones só traz os nomes em icon_names (ordem alfabética): ao usar um ícone novo, inclua-o aqui. --><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=architecture,auto_fix_high,bolt,calculate,calendar_month,chat,check_circle,construction,domain,draw,event_available,foundation,groups,local_fire_department,location_on,mail,mark_chat_read,menu,open_in_new,picture_as_pdf,public,support_agent,terminal,verified,verified_user,visibility,water_drop&amp;display=block" rel="stylesheet"/><link rel="preload" as="image" href="/assets/img/thumb/hero-casa-vila-suica-800.jpg" imagesrcset="/assets/img/thumb/hero-casa-vila-suica-800.jpg 800w, /assets/img/casa-vila-suica-01.jpg 1216w" imagesizes="(min-width: 1024px) 40vw, 100vw" fetchpriority="high"/><link rel="stylesheet" href="/stitch/mobile.css?v=15"/><link rel="stylesheet" href="/stitch/tailwind.css?v=1"/><script src="/stitch/mobile.js?v=2" defer></script><script src="/stitch/portfolio.js?v=5" defer></script><script src="/stitch/simulador-pdf.js?v=5" defer></script></head><body class="bg-surface text-on-surface font-body-md text-body-md antialiased overflow-x-hidden"><header class="site-header">
   <div class="site-header-inner">
-    <a href="#" class="site-brand" aria-label="FSantos Engenharia — início"><img src="/stitch/img/stitch-1.png" alt="FSantos Engenharia" width="160" height="52"/></a>
-    <nav class="desktop-navigation" aria-label="Navegação principal"><a href="#sobre">Sobre</a><a href="#portfolio">Projetos</a><a href="#ferramentas">Softwares</a><a href="/ferramentas" target="_top">Ferramentas</a><a href="#contato">Contato</a></nav>
-    <a class="header-quote" href="#orcamento-simulador">Simular orçamento <span aria-hidden="true">↗</span></a>
+    <a href="#" class="site-brand" aria-label="KF Engenharia — início"><img src="/assets/img/logo-kf-720.png" alt="KF Engenharia" width="179" height="40"/></a>
+    <nav class="desktop-navigation" aria-label="Navegação principal"><a href="#sobre">Sobre</a><a href="#projetos">Projetos</a><a href="#softwares">Softwares</a><a href="/ferramentas" target="_top">Ferramentas</a><a href="#contato">Contato</a></nav>
+    <a class="header-quote" href="#simulador">Simular orçamento <span aria-hidden="true">↗</span></a>
     <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-navigation" aria-label="Abrir menu"><span class="material-symbols-outlined" aria-hidden="true">menu</span></button>
   </div>
-  <nav id="mobile-navigation" class="mobile-navigation" aria-label="Navegação do celular" hidden><a href="#sobre">Sobre o engenheiro <span aria-hidden="true">↗</span></a><a href="#portfolio">Explorar projetos <span aria-hidden="true">↗</span></a><a href="#ferramentas">Softwares & IA <span aria-hidden="true">↗</span></a><a href="/ferramentas" target="_top">Ferramentas <span aria-hidden="true">↗</span></a><a href="#orcamento-simulador">Simular orçamento <span aria-hidden="true">↗</span></a><a href="#contato">Contato direto <span aria-hidden="true">↗</span></a></nav>
-</header><main id="main-content" class="w-full pt-20"><!-- SECTION 1: HERO SECTION DRAMÁTICO & ARQUITETÔNICO (Marinho profundo, Ciano elétrico & Âmbar) --><section class="hero-section relative w-full bg-navy-900 text-white overflow-hidden pt-12 pb-24 lg:pt-16 lg:pb-32 tech-grid-dark"><!-- Efeitos de Iluminação Orgânicos --><div class="absolute -top-40 -right-40 w-[600px] h-[600px] bg-primary-container/15 rounded-full blur-[140px] pointer-events-none"></div><div class="absolute -bottom-32 -left-32 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] pointer-events-none"></div><div class="max-w-7xl mx-auto px-6 lg:px-10 relative z-10"><div class="hero-layout grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center"><!-- Coluna de Texto & Autoridade --><div class="hero-copy lg:col-span-7 flex flex-col items-start reveal"><h1 class="font-display-xl text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-bold tracking-tight text-white leading-[1.12] mb-6">
-            Engenharia de Precisão &amp; <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-fixed-dim via-primary-container to-amber-tech relative">Arquitetura de Alto Padrão.</span></h1><p class="font-body-lg text-base sm:text-lg text-slate-300 max-w-2xl mb-9 leading-relaxed">
-            Desenvolvemos projetos estruturais, hidrossanitários, elétricos, arquitetura executiva e infraestrutura em Manaus-AM. Rigor normativo ABNT, compatibilização <strong>BIM 5D sem conflitos</strong> e economia real na concretagem.
-          </p><!-- Botões de Chamada com Microinterações --><div class="flex flex-wrap items-center gap-4 w-full sm:w-auto mb-12"><a class="relative group px-7 py-4 rounded-xl bg-gradient-to-r from-primary-container to-primary text-white font-bold text-base shadow-[0_8px_28px_rgba(0,180,216,0.4)] hover:shadow-[0_10px_32px_rgba(0,180,216,0.6)] hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center justify-center gap-3 overflow-hidden" href="#orcamento-simulador"><span class="relative z-10 flex items-center gap-2.5"><span class="material-symbols-outlined text-[22px] group-hover:rotate-12 transition-transform">calculate</span>
-                Simular Orçamento Online
-              </span><div class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/30 to-transparent"></div></a><a class="px-7 py-4 rounded-xl bg-navy-800/90 hover:bg-navy-700/90 text-white border border-slate-700 hover:border-slate-500 font-semibold text-base backdrop-blur-md shadow-md transition-all flex items-center justify-center gap-2.5 hover:-translate-y-0.5 active:translate-y-0" href="https://wa.me/5592992262786?text=Ol%C3%A1%20Eng.%20Francirley%2C%20gostaria%20de%20solicitar%20uma%20consulta%20técnica." rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined text-[20px] text-emerald-400">chat</span>
-              Conversar no WhatsApp
-            </a></div><!-- Métricas de Credibilidade com visual tátil --><div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-800/80 w-full max-w-xl"><div class="p-3.5 rounded-xl bg-navy-800/60 border border-slate-700/60"><span class="font-label-md text-primary-fixed-dim block font-bold text-lg">100% BIM</span><span class="text-xs text-slate-400 font-medium">Revit + QiBuilder</span></div><div class="p-3.5 rounded-xl bg-navy-800/60 border border-slate-700/60"><span class="font-label-md text-amber-400 block font-bold text-lg">+120 Obras</span><span class="text-xs text-slate-400 font-medium">CREA / SEMINF</span></div><div class="p-3.5 rounded-xl bg-navy-800/60 border border-slate-700/60"><span class="font-label-md text-emerald-400 block font-bold text-lg">Zero Falhas</span><span class="text-xs text-slate-400 font-medium">Clash Detection Real</span></div></div></div><!-- Coluna Visual: Card 3D de Projeto com Overlay Real --><div class="hero-visual lg:col-span-5 relative reveal"><div class="relative rounded-2xl overflow-hidden bg-navy-850 border border-slate-700/80 shadow-2xl group"><div class="relative aspect-[4/3] w-full overflow-hidden"><img alt="Casa Térrea Vila Suíça Manaus" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="/stitch/img/stitch-2.jpg"/><div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/40 to-transparent"></div><!-- Tag Superior LOD 400 --><div class="absolute top-4 left-4 flex items-center gap-2 bg-navy-900/90 border border-slate-700 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-lg"><span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span><span class="font-label-sm text-xs font-semibold text-white">Digital Twin • LOD 400</span></div><!-- Bottom Meta Overlay --><div class="absolute bottom-5 left-5 right-5 text-white"><span class="font-label-sm text-xs uppercase tracking-wider text-amber-tech font-bold block mb-1">Destaque Residencial</span><h3 class="font-headline-sm text-xl font-bold text-white mb-1">Casa Térrea Vila Suíça</h3><p class="text-xs text-slate-300">Concreto armado estrutural + Compatibilização MEP total em Manaus</p></div></div><!-- Faixa Técnica com Coordenadas --><div class="p-4 bg-navy-950/90 border-t border-slate-800 grid grid-cols-2 gap-2 text-xs font-label-sm text-slate-400"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-primary-container">pin_drop</span><span>Ponta Negra / Manaus</span></div><div class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-emerald-400">verified</span><span>NBR 6118 &amp; NBR 5626</span></div></div></div><!-- Badge Flutuante em Destaque --><div class="absolute -bottom-6 -left-6 hidden sm:flex items-center gap-3.5 p-4 rounded-2xl bg-white text-on-surface shadow-2xl border border-slate-100 max-w-xs animate-bounce" style="animation-duration: 4s;"><div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary-container flex items-center justify-center text-white shadow-md"><span class="material-symbols-outlined text-[26px]">architecture</span></div><div><p class="font-label-sm text-xs text-slate-500 font-semibold uppercase">Responsabilidade Técnica</p><p class="font-headline-sm text-sm font-bold text-navy-900">ART CREA-AM Registrada</p></div></div></div></div></div></section><!-- SECTION 2: SOBRE O ENGENHEIRO (PRESENÇA EXECUTIVA, AUTÊNTICA E HUMANA) --><section class="w-full py-24 bg-white relative tech-grid-light" id="sobre"><div class="max-w-7xl mx-auto px-6 lg:px-10 relative z-10"><div class="rounded-3xl bg-slate-50/80 border border-slate-200/90 p-8 sm:p-12 lg:p-16 shadow-xl relative overflow-hidden reveal"><!-- Acento Decorativo Arquitetônico --><div class="absolute top-0 left-0 w-full h-1.5 blueprint-line"></div><div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"><!-- Coluna 1: Autoridade & Perfil --><div class="lg:col-span-5 flex flex-col items-start gap-6"><div class="p-4 bg-white rounded-2xl shadow-md border border-slate-200/70 w-full max-w-xs flex items-center justify-center"><img alt="FSantos Engenharia" class="h-12 w-auto object-contain" src="/stitch/img/stitch-1.png"/></div><div><div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary font-label-sm text-xs font-bold uppercase tracking-wider mb-2.5"><span class="material-symbols-outlined text-[15px]">engineering</span> Direção Técnica &amp; Cálculo</div><h2 class="font-headline-lg text-2xl sm:text-3xl lg:text-4xl text-navy-950 font-bold tracking-tight">Francirley Pereira Santos</h2><p class="text-sm text-slate-600 font-medium mt-1">Engenheiro Civil • Especialista em Projetos Estruturais &amp; BIM</p><div class="mt-3 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-label-sm font-semibold"><span class="material-symbols-outlined text-[16px] text-emerald-600">verified_user</span> CREA-AM Ativo • Manaus/AM</div></div><p class="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Com atuação direta e consultiva, desenvolvo soluções estruturais e complementares que eliminam desperdícios no canteiro. Cada projeto é modelado parametricamente, gerando quantitativos precisos e conformidade integral com as normas ABNT.
-          </p><a class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-navy-900 hover:bg-navy-800 text-white font-semibold text-sm shadow-md hover:shadow-lg transition-all group" href="https://wa.me/5592992262786?text=Ol%C3%A1%20Eng.%20Francirley%2C%20gostaria%20de%20conversar%20sobre%20meu%20projeto." rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined text-[20px] text-primary-fixed-dim group-hover:rotate-12 transition-transform">chat</span><span>Falar com o Eng. Francirley</span><span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span></a></div><!-- Coluna 2: Manifesto, Disciplinas Integradas & Softwares --><div class="lg:col-span-7 flex flex-col gap-8 lg:border-l lg:border-slate-200 lg:pl-12"><!-- Citação Editorial com alto contraste --><div class="relative pl-6 border-l-4 border-primary-container bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm"><p class="font-body-lg text-base sm:text-lg text-navy-950 leading-relaxed italic font-medium">
-              “Concebo cada viga, pilar e tubulação com responsabilidade técnica intransigente. O cliente recebe segurança estrutural, quantitativo exato de ferragem e concreto, sem sustos ou retrabalhos na obra.”
-            </p><div class="flex items-center justify-between mt-4 pt-3 border-t border-slate-100"><span class="font-label-sm text-xs text-primary font-bold uppercase tracking-wider">— Eng. Francirley Santos</span><span class="text-xs text-slate-400 font-label-sm">Responsável Técnico</span></div></div><!-- Grid das 6 Disciplinas Integradas com visual refinado --><div><span class="font-label-sm text-xs uppercase tracking-wider text-slate-500 font-bold block mb-3">Disciplinas Integradas de Projeto</span><div class="grid grid-cols-2 sm:grid-cols-3 gap-3"><div class="flex items-center gap-2.5 p-3 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-primary/50 transition-all"><span class="material-symbols-outlined text-primary text-[20px]">foundation</span><span class="text-xs font-semibold text-slate-800">Estrutural</span></div><div class="flex items-center gap-2.5 p-3 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-primary/50 transition-all"><span class="material-symbols-outlined text-primary-container text-[20px]">water_drop</span><span class="text-xs font-semibold text-slate-800">Hidrossanitário</span></div><div class="flex items-center gap-2.5 p-3 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-primary/50 transition-all"><span class="material-symbols-outlined text-amber-tech text-[20px]">bolt</span><span class="text-xs font-semibold text-slate-800">Elétrico Predial</span></div><div class="flex items-center gap-2.5 p-3 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-primary/50 transition-all"><span class="material-symbols-outlined text-primary text-[20px]">architecture</span><span class="text-xs font-semibold text-slate-800">Arquitetura</span></div><div class="flex items-center gap-2.5 p-3 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-primary/50 transition-all"><span class="material-symbols-outlined text-primary-container text-[20px]">public</span><span class="text-xs font-semibold text-slate-800">Infraestrutura</span></div><div class="flex items-center gap-2.5 p-3 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-primary/50 transition-all"><span class="material-symbols-outlined text-rose-500 text-[20px]">local_fire_department</span><span class="text-xs font-semibold text-slate-800">PPCI &amp; SPDA</span></div></div></div><!-- Softwares Utilizados --><div><span class="font-label-sm text-xs uppercase tracking-wider text-slate-500 font-bold block mb-2.5">Ambiente OpenBIM &amp; Softwares Oficiais</span><div class="flex flex-wrap gap-2"><span class="px-3 py-1 rounded-lg bg-navy-900 text-white font-label-sm text-xs font-semibold">Autodesk Revit</span><span class="px-3 py-1 rounded-lg bg-navy-900 text-white font-label-sm text-xs font-semibold">AutoCAD</span><span class="px-3 py-1 rounded-lg bg-navy-900 text-white font-label-sm text-xs font-semibold">Civil 3D</span><span class="px-3 py-1 rounded-lg bg-navy-900 text-white font-label-sm text-xs font-semibold">QiBuilder MEP</span><span class="px-3 py-1 rounded-lg bg-navy-900 text-white font-label-sm text-xs font-semibold">Navisworks</span><span class="px-3 py-1 rounded-lg bg-navy-900 text-white font-label-sm text-xs font-semibold">ArcGIS Pro</span></div></div><!-- Conformidade ABNT -->
-<div class="p-3.5 rounded-xl bg-primary/5 border border-primary/20 flex items-center gap-3 text-xs text-slate-700">
-<span class="material-symbols-outlined text-primary text-[22px]">verified</span>
-<span>Projetos com emissão de <strong>ART oficial</strong> conforme <strong>NBR 6118, NBR 5626, NBR 5410 e NBR 15575</strong>.</span>
+  <nav id="mobile-navigation" class="mobile-navigation" aria-label="Navegação do celular" hidden><a href="#sobre">Sobre a KF <span aria-hidden="true">↗</span></a><a href="#projetos">Explorar projetos <span aria-hidden="true">↗</span></a><a href="#softwares">Softwares &amp; IA <span aria-hidden="true">↗</span></a><a href="/ferramentas" target="_top">Ferramentas <span aria-hidden="true">↗</span></a><a href="#simulador">Simular orçamento <span aria-hidden="true">↗</span></a><a href="#contato">Contato direto <span aria-hidden="true">↗</span></a></nav>
+</header><main id="main-content" class="w-full pt-20 bg-surface">
+<!-- 1. HERO -->
+<section class="hero-section relative w-full bg-surface overflow-hidden py-16 md:py-24">
+<div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-size: 32px 32px; background-image: linear-gradient(to right, #d4e3ff 1px, transparent 1px), linear-gradient(to bottom, #d4e3ff 1px, transparent 1px);"></div>
+<div class="absolute -top-32 -left-32 w-96 h-96 bg-primary-container/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="relative max-w-[1440px] mx-auto px-margin-mobile md:px-margin">
+<div class="hero-layout grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="hero-copy lg:col-span-7 flex flex-col items-start">
+<h1 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface font-extrabold tracking-tight mb-6">
+            Engenharia de Precisão &amp; <br class="hidden sm:inline"/>
+<span class="text-primary-container">Arquitetura de Alto Padrão.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-secondary max-w-2xl mb-8 leading-relaxed">
+            Desenvolvemos projetos estruturais, hidrossanitários, elétricos, arquitetura executiva e infraestrutura em Manaus-AM. Rigor normativo ABNT, compatibilização <span class="text-on-surface font-semibold">BIM 5D sem conflitos</span> e economia real na concretagem.
+          </p>
+<div class="flex flex-wrap items-center gap-space-md mb-12">
+<a class="inline-flex items-center justify-center gap-space-xs px-6 py-3.5 bg-primary-container text-on-primary font-title-md text-title-md rounded-lg shadow-[0_6px_20px_rgba(234,132,39,0.3)] hover:brightness-110 hover:-translate-y-0.5 transition-all duration-200" href="#simulador">
+<span class="material-symbols-outlined text-[20px]">calculate</span>
+<span>Simular Orçamento Online</span>
+</a>
+<a class="inline-flex items-center justify-center gap-space-xs px-6 py-3.5 bg-surface-container-high text-on-surface font-title-md text-title-md rounded-lg hover:bg-surface-variant hover:-translate-y-0.5 transition-all duration-200 shadow-md" href="https://wa.me/5592992262786?text=Ol%C3%A1%20KF%20Engenharia%2C%20gostaria%20de%20solicitar%20uma%20consulta%20t%C3%A9cnica." rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[20px] text-tertiary">chat</span>
+<span>Conversar no WhatsApp</span>
+</a>
+</div>
+<div class="grid grid-cols-3 gap-space-md w-full pt-6">
+<div class="p-4 rounded-xl bg-surface-container/70 shadow-sm flex flex-col gap-1">
+<span class="font-headline-md text-headline-md text-primary font-bold">100% BIM</span>
+<span class="font-label-code text-label-code text-secondary">Revit + QiBuilder MEP</span>
+</div>
+<div class="p-4 rounded-xl bg-surface-container/70 shadow-sm flex flex-col gap-1">
+<span class="font-headline-md text-headline-md text-primary-container font-bold">+120 Obras</span>
+<span class="font-label-code text-label-code text-secondary">CREA / SEMINF Manaus</span>
+</div>
+<div class="p-4 rounded-xl bg-surface-container/70 shadow-sm flex flex-col gap-1">
+<span class="font-headline-md text-headline-md text-tertiary font-bold">Zero Falhas</span>
+<span class="font-label-code text-label-code text-secondary">Clash Detection Real</span>
+</div>
+</div>
+</div>
+<div class="hero-visual lg:col-span-5 relative mt-8 lg:mt-0">
+<div class="relative w-full rounded-2xl overflow-hidden shadow-2xl bg-surface-container-high group">
+<div class="relative aspect-[4/3] w-full overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Casa Térrea Vila Suíça, projeto da KF Engenharia em Manaus" src="/assets/img/thumb/hero-casa-vila-suica-800.jpg" srcset="/assets/img/thumb/hero-casa-vila-suica-800.jpg 800w, /assets/img/casa-vila-suica-01.jpg 1216w" sizes="(min-width: 1024px) 40vw, 100vw" width="800" height="600" fetchpriority="high" decoding="async"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/30 to-transparent"></div>
+<div class="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md text-primary text-label-code font-label-code shadow-md">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+                Digital Twin • LOD 400
+              </div>
+</div>
+<div class="p-6 relative bg-surface-container">
+<div class="font-label-code text-label-code uppercase tracking-wider text-primary-container font-bold mb-1">Destaque Residencial Manaus</div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold mb-1">Casa Térrea Vila Suíça</h3>
+<p class="font-body-sm text-body-sm text-secondary">Concreto armado estrutural + Compatibilização MEP total em Manaus</p>
+<div class="mt-4 pt-3 flex items-center justify-between text-secondary">
+<span class="font-label-code text-label-code text-secondary-fixed-dim">NBR 6118 &amp; NBR 5626</span>
+<a class="inline-flex items-center gap-1 text-primary text-body-sm font-semibold group-hover:translate-x-1 transition-transform" href="#projetos">Ver pranchas <span class="font-label-code" aria-hidden="true">→</span></a>
+</div>
+</div>
+</div>
+<div class="hero-badge absolute -top-6 -right-3 lg:-right-6 hidden sm:flex p-4 rounded-xl bg-surface text-on-surface shadow-2xl items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[24px]">architecture</span>
+</div>
+<div>
+<p class="font-label-code text-label-code uppercase text-secondary">Responsabilidade Técnica</p>
+<p class="font-title-md text-title-md font-bold text-on-surface">ART CREA-AM Registrada</p>
 </div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<!-- SECTION 3: PORTFÓLIO DE OBRAS COM ALTO CONTRASTE E IMAGENS REAIS -->
-<section class="w-full py-24 bg-slate-900 text-white relative tech-grid-dark" id="portfolio">
-<div class="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
-<!-- Header da Seção -->
-<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 reveal">
+<!-- 2. SOBRE -->
+<section class="w-full bg-surface-container-lowest py-20" id="sobre">
+<div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin">
+<div class="w-full rounded-2xl bg-white text-on-secondary-fixed shadow-2xl overflow-hidden p-8 md:p-14">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+<div class="lg:col-span-5 flex flex-col gap-6">
+<div class="flex items-center gap-3"><img src="/assets/img/logo-kf-720.png" alt="KF Engenharia" class="h-10 w-auto object-contain" width="179" height="40" loading="lazy" decoding="async"/></div>
+<div class="flex flex-wrap items-center gap-2">
+<span class="px-3 py-1 bg-surface-container-lowest text-tertiary font-label-code text-label-code uppercase rounded-full">Engenharia &amp; Projetos</span>
+<span class="inline-flex items-center gap-1 px-3 py-1 bg-surface-container-low text-secondary font-label-badge text-label-badge rounded-full">
+<span class="material-symbols-outlined text-[14px] text-primary-container">verified</span>
+                Manaus/AM
+              </span>
+</div>
 <div>
-<div class="flex items-center gap-2.5 mb-2">
-<span class="h-5 w-1.5 bg-primary-container rounded-full"></span>
-<span class="font-label-sm text-xs uppercase tracking-widest text-primary-fixed-dim font-bold">Acervo Técnico Documentado</span>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg font-extrabold text-on-secondary-fixed tracking-tight">Sobre a KF Engenharia</h2>
+<p class="font-title-md text-title-md text-on-secondary-fixed-variant mt-1 font-medium">Planejamento, precisão técnica e integração de projetos</p>
 </div>
-<h2 class="font-headline-lg text-3xl sm:text-4xl text-white tracking-tight">Obras &amp; Projetos em Manaus</h2>
+<p class="font-body-lg text-body-lg text-on-secondary-fixed-variant leading-relaxed">
+              A KF Engenharia desenvolve projetos de engenharia com foco em planejamento, precisão técnica e integração entre disciplinas. Francirley Pereira Santos e Kleber Fernandes Braga são os responsáveis técnicos da empresa.
+            </p>
+<a class="inline-flex items-center justify-center gap-2 self-start px-6 py-3.5 rounded-lg bg-surface-container-lowest text-white font-title-md text-title-md shadow-md hover:bg-surface-container transition-all" href="https://wa.me/5592992262786?text=Ol%C3%A1%20KF%20Engenharia%2C%20gostaria%20de%20conversar%20sobre%20meu%20projeto." rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+<span>Falar com a KF Engenharia</span>
+<span class="font-label-code" aria-hidden="true">→</span>
+</a>
 </div>
-<p class="text-sm text-slate-300 max-w-md">
-            Soluções completas entregues com pranchas executivas detalhadas, compatibilização multidisciplinar e rigor técnico comprovado.
-          </p>
+<div class="lg:col-span-7 flex flex-col gap-8">
+<div class="p-6 rounded-xl bg-surface-container-low/5 text-on-secondary-fixed">
+<p class="font-title-lg text-title-lg italic font-medium leading-snug text-on-secondary-fixed">
+                “Unimos planejamento e desenvolvimento técnico para oferecer soluções integradas às necessidades de cada projeto.”
+              </p>
+<div class="flex items-center justify-between mt-4 pt-3 text-on-secondary-fixed-variant text-body-sm">
+<span class="font-label-code text-label-code uppercase tracking-wider font-bold text-on-secondary-fixed">KF Engenharia</span>
+<span class="font-label-code text-label-code text-on-secondary-fixed-variant">Equipe técnica multidisciplinar</span>
 </div>
-<!-- Abas Interativas dos Filtros -->
-<div class="flex flex-wrap items-center gap-2.5 mb-10 overflow-x-auto pb-2 reveal" id="portfolio-filter-buttons"></div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-cards-grid"></div>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-on-secondary-fixed font-bold mb-3 uppercase tracking-wide">Responsáveis Técnicos</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="p-4 rounded-lg bg-surface-container-low/5">
+<p class="font-title-md text-title-md font-bold text-on-secondary-fixed">Francirley Pereira Santos</p>
+<p class="font-body-md text-body-md text-on-secondary-fixed-variant">Engenheiro Civil • CREA 31.410-AM</p>
+</div>
+<div class="p-4 rounded-lg bg-surface-container-low/5">
+<p class="font-title-md text-title-md font-bold text-on-secondary-fixed">Kleber Fernandes Braga</p>
+<p class="font-body-md text-body-md text-on-secondary-fixed-variant">Responsável Técnico</p>
+</div>
+</div>
+</div>
+<div>
+<p class="font-label-code text-label-code uppercase tracking-wider text-on-secondary-fixed-variant font-bold mb-3">Disciplinas Integradas de Projeto</p>
+<div class="disciplines-grid grid grid-cols-2 sm:grid-cols-3 gap-3">
+<div class="flex items-center gap-2 p-3 rounded-lg bg-surface-container-low/5 text-on-secondary-fixed"><span class="material-symbols-outlined text-primary-container text-[20px]">domain</span><span class="font-title-md text-body-md font-semibold">Estrutural</span></div>
+<div class="flex items-center gap-2 p-3 rounded-lg bg-surface-container-low/5 text-on-secondary-fixed"><span class="material-symbols-outlined text-tertiary-container text-[20px]">water_drop</span><span class="font-title-md text-body-md font-semibold">Hidrossanitário</span></div>
+<div class="flex items-center gap-2 p-3 rounded-lg bg-surface-container-low/5 text-on-secondary-fixed"><span class="material-symbols-outlined text-primary-container text-[20px]">bolt</span><span class="font-title-md text-body-md font-semibold">Elétrico Predial</span></div>
+<div class="flex items-center gap-2 p-3 rounded-lg bg-surface-container-low/5 text-on-secondary-fixed"><span class="material-symbols-outlined text-primary-container text-[20px]">draw</span><span class="font-title-md text-body-md font-semibold">Arquitetura</span></div>
+<div class="flex items-center gap-2 p-3 rounded-lg bg-surface-container-low/5 text-on-secondary-fixed"><span class="material-symbols-outlined text-tertiary-container text-[20px]">public</span><span class="font-title-md text-body-md font-semibold">Infraestrutura</span></div>
+<div class="flex items-center gap-2 p-3 rounded-lg bg-surface-container-low/5 text-on-secondary-fixed"><span class="material-symbols-outlined text-primary-container text-[20px]">local_fire_department</span><span class="font-title-md text-body-md font-semibold">PPCI &amp; SPDA</span></div>
+</div>
+</div>
+<div>
+<p class="font-label-code text-label-code uppercase tracking-wider text-on-secondary-fixed-variant font-bold mb-2">Ambiente OpenBIM &amp; Softwares Oficiais</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 rounded bg-surface-container-lowest text-white font-label-code text-label-code">Autodesk Revit</span>
+<span class="px-3 py-1 rounded bg-surface-container-lowest text-white font-label-code text-label-code">AutoCAD</span>
+<span class="px-3 py-1 rounded bg-surface-container-lowest text-white font-label-code text-label-code">Civil 3D</span>
+<span class="px-3 py-1 rounded bg-surface-container-lowest text-white font-label-code text-label-code">QiBuilder MEP</span>
+<span class="px-3 py-1 rounded bg-surface-container-lowest text-white font-label-code text-label-code">Navisworks</span>
+<span class="px-3 py-1 rounded bg-surface-container-lowest text-white font-label-code text-label-code">ArcGIS Pro</span>
+</div>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low/10 flex items-center gap-3 text-on-secondary-fixed">
+<span class="material-symbols-outlined text-primary-container text-[24px]">verified_user</span>
+<p class="font-body-sm text-body-sm">Projetos com emissão de <strong class="font-semibold text-on-secondary-fixed">ART oficial</strong> conforme <span class="font-label-code">NBR 6118, NBR 5626, NBR 5410</span> e <span class="font-label-code">NBR 15575</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. PORTFÓLIO (cards gerados por portfolio.js a partir de /stitch/projects.json) -->
+<section class="w-full bg-surface py-20" id="projetos">
+<div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin">
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
+<div>
+<div class="inline-flex items-center gap-2 text-primary font-label-code text-label-code uppercase tracking-wider mb-2 font-bold">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+            Acervo Técnico Documentado
+          </div>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg font-extrabold text-on-surface tracking-tight">Obras &amp; Projetos em Manaus</h2>
+</div>
+<p class="font-body-md text-body-md text-secondary max-w-md">Soluções completas entregues com pranchas executivas detalhadas, compatibilização multidisciplinar e rigor técnico comprovado.</p>
+</div>
+<div class="flex items-center gap-2 overflow-x-auto pb-4 mb-8" id="portfolio-filter-buttons"></div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter" id="portfolio-cards-grid"></div>
 <p id="portfolio-count" aria-live="polite">Carregando projetos…</p>
 <div class="flex justify-center">
-<button type="button" id="portfolio-more" class="rounded-xl bg-primary-container px-7 text-sm font-bold text-white shadow-md" hidden>Ver mais projetos</button>
+<button type="button" id="portfolio-more" class="rounded-lg bg-primary-container px-7 font-title-md text-title-md font-bold text-on-primary shadow-[0_6px_20px_rgba(234,132,39,0.3)] hover:brightness-110 transition-all" hidden>Ver mais projetos</button>
 </div>
 <template id="portfolio-card-template">
-<article class="portfolio-item group relative flex w-full flex-col overflow-hidden rounded-2xl border border-slate-700/80 bg-navy-850 text-left shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary-container">
-<div class="relative aspect-[16/10] w-full overflow-hidden bg-navy-950">
+<article class="portfolio-item group relative flex w-full flex-col overflow-hidden rounded-xl bg-surface-container-high text-left shadow-lg transition-transform duration-300 hover:-translate-y-1">
+<div class="relative aspect-[16/10] w-full overflow-hidden bg-surface-container-lowest">
 <img alt="" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"/>
-<div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent"></div>
-<div class="portfolio-count absolute top-3 right-3 rounded-md border border-slate-700 bg-navy-900/90 px-2.5 py-1 font-label-sm text-xs font-semibold text-amber-tech"></div>
-<div class="portfolio-category absolute bottom-3 left-3 rounded-md bg-primary-container px-2.5 py-1 font-label-sm text-xs font-bold text-white"></div>
+<div class="portfolio-count absolute top-3 right-3 px-2.5 py-1 rounded bg-surface-container-lowest/80 backdrop-blur text-primary text-label-code font-label-code"></div>
+<div class="portfolio-category absolute bottom-3 left-3 px-3 py-1 rounded bg-tertiary-container text-on-tertiary-container font-label-badge text-label-badge font-bold"></div>
 </div>
 <div class="p-6">
-<h3 class="mb-2 font-headline-sm text-lg font-bold text-white transition-colors group-hover:text-primary-fixed-dim"></h3>
-<p class="text-xs leading-relaxed text-slate-300"></p>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold mb-1 transition-colors group-hover:text-primary"></h3>
+<p class="font-body-md text-body-md text-secondary"></p>
 </div>
-<button type="button" class="project-open absolute inset-0 rounded-2xl"></button>
+<button type="button" class="project-open absolute inset-0 rounded-xl"></button>
 </article>
 </template>
 </div>
 </section>
-<!-- SECTION 4: ECOSSISTEMA DE SOFTWARES & IA (DUAL TONE DEEP NAVY #08121E COM GLOW CIANO) -->
-<section class="w-full py-24 bg-navy-950 text-white relative tech-grid-dark overflow-hidden" id="ferramentas">
-<!-- Glows Ambientais -->
-<div class="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-primary-container/10 rounded-full blur-[130px] pointer-events-none"></div>
-<div class="absolute top-1/3 right-10 w-80 h-80 bg-amber-tech/10 rounded-full blur-[120px] pointer-events-none"></div>
-<div class="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
-<div class="text-center max-w-3xl mx-auto mb-16 reveal">
-<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-navy-800 border border-primary-container/40 text-primary-fixed-dim font-label-sm text-xs uppercase font-bold mb-4">
-<span class="material-symbols-outlined text-[16px] text-primary-container">memory</span> Tecnologia Computacional Própria 2026
-          </div>
-<h2 class="font-headline-lg text-3xl sm:text-4xl text-white tracking-tight mb-4">
-            Ecossistema de Softwares &amp; Algoritmos FSantos
-          </h2>
-<p class="text-base text-slate-300 leading-relaxed">
-            Desenvolvemos ferramentas paramétricas e pipelines de inteligência artificial aplicadas à engenharia civil, acelerando o pré-dimensionamento com precisão milimétrica.
-          </p>
+<!-- 4. SOFTWARES -->
+<section class="w-full bg-surface-container-lowest py-20 relative overflow-hidden" id="softwares">
+<div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container text-tertiary font-label-code text-label-code uppercase tracking-wider mb-4">
+<span class="material-symbols-outlined text-[16px]">terminal</span>
+          Tecnologia Computacional Própria 2026
+        </div>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg font-extrabold text-on-surface tracking-tight mb-4">Ecossistema de Softwares &amp; Algoritmos KF Engenharia</h2>
+<p class="font-body-lg text-body-lg text-secondary">Desenvolvemos ferramentas paramétricas e pipelines de inteligência artificial aplicadas à engenharia civil, acelerando o pré-dimensionamento com precisão milimétrica.</p>
 </div>
-<div class="software-grid grid grid-cols-1 md:grid-cols-3 gap-8">
-<!-- Card 1: FSantos CalcFoundation -->
-<div class="rounded-2xl p-8 bg-navy-900 border border-slate-700/80 shadow-2xl hover:border-primary-container transition-all flex flex-col justify-between group reveal">
+<div class="software-grid grid grid-cols-1 md:grid-cols-3 gap-gutter items-stretch">
+<div class="rounded-2xl p-8 bg-surface-container flex flex-col justify-between shadow-xl transition-all duration-300 hover:-translate-y-1">
 <div>
-<div class="w-14 h-14 rounded-2xl bg-primary/20 border border-primary/40 flex items-center justify-center text-primary-fixed-dim mb-6 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-[30px]">foundation</span>
-</div>
-<span class="font-label-sm text-xs text-primary-fixed-dim font-bold uppercase tracking-wider block mb-1">Módulo Estrutural</span>
-<h3 class="font-headline-md text-xl text-white font-bold mb-3">FSantos CalcFoundation</h3>
-<p class="text-xs text-slate-300 leading-relaxed mb-6">
-                Dimensionamento analítico de sapatas isoladas, radiers e blocos sobre estacas. Calibrado para as tensões admissíveis dos solos argilosos da bacia de Manaus.
-              </p>
-<ul class="flex flex-col gap-3 mb-8 text-xs text-slate-300 font-medium">
-<li class="flex items-center gap-2.5">
-<span class="material-symbols-outlined text-primary-container text-[18px]">check_circle</span>
-                  Verificação automática de punção NBR 6118
-                </li>
-<li class="flex items-center gap-2.5">
-<span class="material-symbols-outlined text-primary-container text-[18px]">check_circle</span>
-                  Exportação de memorial de cálculo e reações
-                </li>
-<li class="flex items-center gap-2.5">
-<span class="material-symbols-outlined text-primary-container text-[18px]">check_circle</span>
-                  Correlação direta com sondagem SPT local
-                </li>
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary-container mb-6"><span class="material-symbols-outlined text-[28px]">foundation</span></div>
+<p class="font-label-code text-label-code text-primary uppercase tracking-wider font-bold mb-1">Módulo Estrutural</p>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold mb-3">FSantos CalcFoundation</h3>
+<p class="font-body-md text-body-md text-secondary mb-6 leading-relaxed">Dimensionamento analítico de sapatas isoladas, radiers e blocos sobre estacas. Calibrado para as tensões admissíveis dos solos argilosos da bacia de Manaus.</p>
+<ul class="flex flex-col gap-3 mb-8">
+<li class="flex items-center gap-2 text-body-sm text-secondary"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span><span>Verificação automática de punção NBR 6118</span></li>
+<li class="flex items-center gap-2 text-body-sm text-secondary"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span><span>Exportação de memorial de cálculo e reações</span></li>
+<li class="flex items-center gap-2 text-body-sm text-secondary"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span><span>Correlação direta com sondagem SPT local</span></li>
 </ul>
 </div>
-<a class="inline-flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-navy-800 hover:bg-primary text-white text-xs font-label-sm uppercase font-bold tracking-wider transition-all border border-slate-700 hover:border-primary" href="https://fsantoscalcfoundation.com.br/home" target="_blank" rel="noopener">
+<a class="w-full py-3 px-4 rounded-lg bg-surface-container-high text-on-surface font-title-md text-title-md font-semibold text-center hover:bg-surface-variant transition-colors flex items-center justify-center gap-2" href="https://fsantoscalcfoundation.com.br/home" target="_blank" rel="noopener noreferrer">
 <span>Utilizar no Orçamento</span>
-<span class="material-symbols-outlined text-[16px]">arrow_downward</span>
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
 </a>
 </div>
-<!-- Card 2: Santos ArchiRender AI -->
-<div class="rounded-2xl p-8 bg-navy-900 border border-primary-container/40 shadow-2xl hover:border-primary-fixed-dim transition-all flex flex-col justify-between group relative overflow-hidden reveal">
-<div class="absolute top-0 right-0 px-3 py-1 bg-primary-container text-white font-label-sm text-[10px] font-bold rounded-bl-xl uppercase tracking-wider">
-              IA Generativa
-            </div>
+<div class="rounded-2xl p-8 bg-surface-container-high shadow-2xl flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 relative">
+<div class="absolute -top-3 right-6 px-3 py-1 rounded-full bg-primary-container text-on-primary font-label-badge text-label-badge font-bold uppercase tracking-wider">IA Generativa</div>
 <div>
-<div class="w-14 h-14 rounded-2xl bg-primary-container/20 border border-primary-container/40 flex items-center justify-center text-primary-container mb-6 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-[30px]">auto_fix_high</span>
-</div>
-<span class="font-label-sm text-xs text-amber-tech font-bold uppercase tracking-wider block mb-1">Visualização 2026</span>
-<h3 class="font-headline-md text-xl text-white font-bold mb-3">Santos ArchiRender AI</h3>
-<p class="text-xs text-slate-300 leading-relaxed mb-6">
-                Transforma croquis técnicos e modelos 3D brutos do Revit em renders de alta fidelidade com iluminação solar amazônica em poucos segundos.
-              </p>
-<ul class="flex flex-col gap-3 mb-8 text-xs text-slate-300 font-medium">
-<li class="flex items-center gap-2.5">
-<span class="material-symbols-outlined text-amber-tech text-[18px]">check_circle</span>
-                  Luz solar equatorial simulada com precisão
-                </li>
-<li class="flex items-center gap-2.5">
-<span class="material-symbols-outlined text-amber-tech text-[18px]">check_circle</span>
-                  Materiais nobres: ripado, pedras e caixilharia
-                </li>
-<li class="flex items-center gap-2.5">
-<span class="material-symbols-outlined text-amber-tech text-[18px]">check_circle</span>
-                  Apresentação imersiva para aprovação do cliente
-                </li>
+<div class="w-12 h-12 rounded-xl bg-primary-container/20 flex items-center justify-center text-primary-container mb-6"><span class="material-symbols-outlined text-[28px]">auto_fix_high</span></div>
+<p class="font-label-code text-label-code text-primary uppercase tracking-wider font-bold mb-1">Visualização 2026</p>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold mb-3">Santos ArchiRender AI</h3>
+<p class="font-body-md text-body-md text-secondary mb-6 leading-relaxed">Transforma croquis técnicos e modelos 3D brutos do Revit em renders de alta fidelidade com iluminação solar amazônica em poucos segundos.</p>
+<ul class="flex flex-col gap-3 mb-8">
+<li class="flex items-center gap-2 text-body-sm text-on-surface"><span class="material-symbols-outlined text-primary-container text-[18px]">check_circle</span><span>Luz solar equatorial simulada com precisão</span></li>
+<li class="flex items-center gap-2 text-body-sm text-on-surface"><span class="material-symbols-outlined text-primary-container text-[18px]">check_circle</span><span>Materiais nobres: ripado, pedras e caixilharia</span></li>
+<li class="flex items-center gap-2 text-body-sm text-on-surface"><span class="material-symbols-outlined text-primary-container text-[18px]">check_circle</span><span>Apresentação imersiva para aprovação do cliente</span></li>
 </ul>
 </div>
-<a class="inline-flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-gradient-to-r from-primary to-primary-container text-white text-xs font-label-sm uppercase font-bold tracking-wider shadow-lg hover:shadow-cyan-500/30 transition-all" href="https://santos-archirender-ai-96744710742.us-west1.run.app/" target="_blank" rel="noopener">
-<span>Ver Imagens Geradas</span>
-<span class="material-symbols-outlined text-[16px]">visibility</span>
+<a class="w-full py-3 px-4 rounded-lg bg-primary-container text-on-primary font-title-md text-title-md font-bold text-center hover:bg-primary transition-colors flex items-center justify-center gap-2 shadow-lg shadow-primary-container/20" href="https://santos-archirender-ai-96744710742.us-west1.run.app/" target="_blank" rel="noopener noreferrer">
+<span>Ver imagens geradas</span>
+<span class="material-symbols-outlined text-[18px]">visibility</span>
 </a>
 </div>
-<!-- Card 3: Calculadoras Gratuitas de Pré-Dimensionamento -->
-<div class="rounded-2xl p-8 bg-navy-900 border border-slate-700/80 shadow-2xl hover:border-amber-tech transition-all flex flex-col justify-between group reveal">
+<div class="rounded-2xl p-8 bg-surface-container flex flex-col justify-between shadow-xl transition-all duration-300 hover:-translate-y-1">
 <div>
-<div class="w-14 h-14 rounded-2xl bg-amber-tech/20 border border-amber-tech/40 flex items-center justify-center text-amber-tech mb-6 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-[30px]">design_services</span>
-</div>
-<span class="font-label-sm text-xs text-amber-tech font-bold uppercase tracking-wider block mb-1">Acesso Livre</span>
-<h3 class="font-headline-md text-xl text-white font-bold mb-3">Pré-Dimensionamento Rápido</h3>
-<p class="text-xs text-slate-300 leading-relaxed mb-6">
-                Utilitários para engenheiros, mestres de obras e arquitetos estimarem seções mínimas de pilares, vigas em balanço, lajes maciças e calhas de drenagem.
-              </p>
-<ul class="flex flex-col gap-3 mb-8 text-xs text-slate-300 font-medium">
-<li class="flex items-center gap-2.5">
-<span class="material-symbols-outlined text-amber-tech text-[18px]">check_circle</span>
-                  Estimativa rápida de consumo de aço CA-50
-                </li>
-<li class="flex items-center gap-2.5">
-<span class="material-symbols-outlined text-amber-tech text-[18px]">check_circle</span>
-                  Volume de concreto por metro quadrado
-                </li>
-<li class="flex items-center gap-2.5">
-<span class="material-symbols-outlined text-amber-tech text-[18px]">check_circle</span>
-                  Conexão direta com a tabela de honorários
-                </li>
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-tertiary mb-6"><span class="material-symbols-outlined text-[28px]">construction</span></div>
+<p class="font-label-code text-label-code text-primary uppercase tracking-wider font-bold mb-1">Acesso Livre</p>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold mb-3">Pré-Dimensionamento Rápido</h3>
+<p class="font-body-md text-body-md text-secondary mb-6 leading-relaxed">Utilitários para engenheiros, mestres de obras e arquitetos estimarem seções mínimas de pilares, vigas em balanço, lajes maciças e calhas de drenagem.</p>
+<ul class="flex flex-col gap-3 mb-8">
+<li class="flex items-center gap-2 text-body-sm text-secondary"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span><span>Estimativa rápida de consumo de aço CA-50</span></li>
+<li class="flex items-center gap-2 text-body-sm text-secondary"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span><span>Volume de concreto por metro quadrado</span></li>
+<li class="flex items-center gap-2 text-body-sm text-secondary"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span><span>Conexão direta com a tabela de honorários</span></li>
 </ul>
 </div>
-<button class="inline-flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-navy-800 hover:bg-amber-500 hover:text-navy-950 text-white text-xs font-label-sm uppercase font-bold tracking-wider transition-all border border-slate-700 hover:border-amber-500" onclick="window.top.location.href='/ferramentas'">
+<a class="w-full py-3 px-4 rounded-lg bg-surface-container-high text-on-surface font-title-md text-title-md font-semibold text-center hover:bg-surface-variant transition-colors flex items-center justify-center gap-2" href="/ferramentas" target="_top">
 <span>Simular no Painel</span>
-<span class="material-symbols-outlined text-[16px]">bolt</span>
-</button>
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+</a>
 </div>
 </div>
 </div>
 </section>
-<!-- SECTION 5: SIMULADOR DE ORÇAMENTO ONLINE INTERATIVO (ALTO CONTRASTE & TÁTIL) -->
-<section class="w-full py-24 bg-surface relative" id="orcamento-simulador">
-<div class="max-w-7xl mx-auto px-6 lg:px-10">
-<div class="text-center max-w-3xl mx-auto mb-14 reveal">
-<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary font-label-sm text-xs uppercase font-bold mb-3">
-<span class="material-symbols-outlined text-[16px]">verified</span> Tabela Transparente de Honorários FSantos
-          </div>
-<h2 class="font-headline-lg text-3xl sm:text-4xl text-navy-950 font-bold tracking-tight mb-3">
-            Simulador Interativo de Orçamento 2026
-          </h2>
-<p class="text-base text-slate-600">
-            Ajuste a metragem quadrada da sua obra e selecione as disciplinas desejadas. Receba a estimativa calculada em tempo real com envio direto para o WhatsApp técnico.
-          </p>
+<!-- 5. SIMULADOR DE ORÇAMENTO -->
+<section class="w-full bg-surface-container py-20 relative" id="simulador">
+<div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin">
+<div class="text-center max-w-2xl mx-auto mb-14">
+<div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-surface-container-high text-primary font-label-code text-label-code uppercase tracking-wider mb-3">
+<span class="material-symbols-outlined text-[15px]">verified</span>
+          Tabela Transparente de Honorários KF Engenharia
+        </div>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg font-extrabold text-on-surface tracking-tight mb-3">Simulador Interativo de Orçamento 2026</h2>
+<p class="font-body-md text-body-md text-secondary">Ajuste a metragem quadrada da sua obra e selecione as disciplinas desejadas. Receba a estimativa calculada em tempo real com envio direto para o WhatsApp técnico.</p>
 </div>
-<!-- Painel do Simulador -->
-<div class="bg-white rounded-3xl shadow-2xl border border-slate-200/90 overflow-hidden p-6 sm:p-10 lg:p-12 reveal">
-<form class="grid grid-cols-1 lg:grid-cols-12 gap-10" id="estimator-form" onsubmit="event.preventDefault(); sendToWhatsApp();">
-<!-- Coluna Esquerda: Dados do Cliente + Slider de Área + Checkboxes -->
-<div class="lg:col-span-7 flex flex-col gap-6">
-<div class="pb-3 border-b border-slate-100 flex items-center justify-between">
+<div class="simulator-card w-full rounded-2xl bg-white text-on-secondary-fixed shadow-2xl p-6 md:p-12">
+<form class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start" id="estimator-form" onsubmit="event.preventDefault(); sendToWhatsApp();">
+<div class="lg:col-span-7 flex flex-col gap-8">
+<div class="step-heading flex items-center justify-between pb-3">
 <div>
-<span class="font-label-sm text-xs uppercase tracking-wider text-primary font-bold block">Passo 1 de 2</span>
-<h3 class="font-headline-md text-xl text-navy-950 font-bold">Dados da Obra &amp; Metragem</h3>
+<span class="font-label-code text-label-code text-primary-container uppercase font-bold tracking-wider">Passo 1 de 2</span>
+<h3 class="font-title-lg text-title-lg text-on-secondary-fixed font-bold">Dados da Obra &amp; Metragem</h3>
 </div>
-<span class="text-xs text-slate-400 font-label-sm">Manaus &amp; Região Norte</span>
-</div>
-<!-- Inputs Cliente -->
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-<div>
-<label class="block font-label-sm text-xs uppercase tracking-wider text-slate-700 mb-1.5 font-bold">Nome do Contratante *</label>
-<input class="w-full h-12 px-4 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-sm outline-none focus:bg-white focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all" id="calc-name" placeholder="Ex.: Roberto Mendonça" required="" type="text"/>
-</div>
-<div>
-<label class="block font-label-sm text-xs uppercase tracking-wider text-slate-700 mb-1.5 font-bold">Telefone / WhatsApp *</label>
-<input class="w-full h-12 px-4 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-sm outline-none focus:bg-white focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all" id="calc-phone" placeholder="(92) 9____-____" required="" type="tel"/>
-</div>
+<span class="font-label-code text-label-code text-on-secondary-fixed-variant">Manaus &amp; Região Norte</span>
 </div>
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 <div>
-<label class="block font-label-sm text-xs uppercase tracking-wider text-slate-700 mb-1.5 font-bold">E-mail Profissional</label>
-<input class="w-full h-12 px-4 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-sm outline-none focus:bg-white focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all" id="calc-email" placeholder="cliente@empresa.com" type="email"/>
+<label class="block font-label-code text-label-code uppercase text-on-secondary-fixed-variant font-bold mb-1.5">Nome do Contratante *</label>
+<input class="w-full h-12 px-4 rounded-lg bg-surface-container-low/5 text-on-secondary-fixed font-body-md placeholder-on-secondary-fixed-variant/50 focus:outline-none focus:ring-2 focus:ring-primary-container" id="calc-name" placeholder="Ex.: Roberto Mendonça" required="" type="text"/>
 </div>
 <div>
-<label class="block font-label-sm text-xs uppercase tracking-wider text-slate-700 mb-1.5 font-bold">Cidade / UF</label>
-<input class="w-full h-12 px-4 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-sm outline-none focus:bg-white focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all" id="calc-city" type="text" value="Manaus/AM"/>
-</div>
+<label class="block font-label-code text-label-code uppercase text-on-secondary-fixed-variant font-bold mb-1.5">Telefone / WhatsApp *</label>
+<input class="w-full h-12 px-4 rounded-lg bg-surface-container-low/5 text-on-secondary-fixed font-body-md placeholder-on-secondary-fixed-variant/50 focus:outline-none focus:ring-2 focus:ring-primary-container" id="calc-phone" placeholder="(92) 9____-____" required="" type="tel"/>
 </div>
 <div>
-<label class="block font-label-sm text-xs uppercase tracking-wider text-slate-700 mb-1.5 font-bold">Tipo da Obra / Descrição</label>
-<input class="w-full h-12 px-4 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-sm outline-none focus:bg-white focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all" id="calc-desc" placeholder="Ex.: Residência 2 Pavimentos no Ponta Negra ou Galpão Comercial" type="text"/>
+<label class="block font-label-code text-label-code uppercase text-on-secondary-fixed-variant font-bold mb-1.5">E-mail Profissional</label>
+<input class="w-full h-12 px-4 rounded-lg bg-surface-container-low/5 text-on-secondary-fixed font-body-md placeholder-on-secondary-fixed-variant/50 focus:outline-none focus:ring-2 focus:ring-primary-container" id="calc-email" placeholder="cliente@empresa.com" type="email"/>
 </div>
-<!-- Slider Dinâmico de Área -->
-<div class="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 mt-2">
-<div class="flex items-center justify-between mb-4">
 <div>
-<span class="font-headline-sm text-base text-navy-950 font-bold block">Área Construída do Projeto</span>
-<span class="text-xs text-slate-500">Arraste para ajustar a metragem aproximada</span>
+<label class="block font-label-code text-label-code uppercase text-on-secondary-fixed-variant font-bold mb-1.5">Cidade / UF</label>
+<input class="w-full h-12 px-4 rounded-lg bg-surface-container-low/5 text-on-secondary-fixed font-body-md placeholder-on-secondary-fixed-variant/50 focus:outline-none focus:ring-2 focus:ring-primary-container" id="calc-city" type="text" value="Manaus/AM"/>
 </div>
-<div class="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white border border-slate-300 shadow-sm">
-<input class="w-20 text-right font-label-lg text-lg font-bold text-navy-950 outline-none" id="calc-area-input" max="2500" min="20" type="number" value="120"/>
-<span class="font-label-md text-sm text-primary font-bold">m²</span>
+<div class="sm:col-span-2">
+<label class="block font-label-code text-label-code uppercase text-on-secondary-fixed-variant font-bold mb-1.5">Tipo da Obra / Descrição</label>
+<input class="w-full h-12 px-4 rounded-lg bg-surface-container-low/5 text-on-secondary-fixed font-body-md placeholder-on-secondary-fixed-variant/50 focus:outline-none focus:ring-2 focus:ring-primary-container" id="calc-desc" placeholder="Ex.: Residência 2 Pavimentos no Ponta Negra ou Galpão Comercial" type="text"/>
 </div>
 </div>
-<input class="w-full h-2.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-primary-container" id="calc-area-range" max="1000" min="20" step="5" type="range" value="120"/>
-<div class="flex justify-between text-slate-500 font-label-sm text-xs mt-2.5 font-medium">
+<div class="area-panel p-6 rounded-xl bg-surface-container-low/5">
+<div class="area-heading flex items-center justify-between gap-4 mb-4">
+<div>
+<h4 class="font-title-md text-title-md font-bold text-on-secondary-fixed">Área Construída do Projeto</h4>
+<p class="font-body-sm text-body-sm text-on-secondary-fixed-variant">Arraste para ajustar a metragem aproximada</p>
+</div>
+<div class="flex items-center gap-1 px-4 py-2 rounded-lg bg-white shadow-sm">
+<input class="w-20 text-right bg-transparent font-headline-md text-headline-md text-on-secondary-fixed font-bold outline-none" id="calc-area-input" max="2500" min="20" type="number" value="120"/>
+<span class="font-label-code text-label-code text-on-secondary-fixed-variant">m²</span>
+</div>
+</div>
+<input class="w-full accent-[#ea8427] cursor-pointer" id="calc-area-range" max="1000" min="20" step="5" type="range" value="120"/>
+<div class="flex justify-between font-label-code text-label-code text-on-secondary-fixed-variant mt-2">
 <span>20 m²</span>
 <span>250 m²</span>
 <span>500 m²</span>
 <span>1.000+ m²</span>
 </div>
 </div>
-<!-- Disciplinas -->
 <div>
-<div class="flex items-center justify-between mb-3 pt-2">
-<span class="font-label-sm text-xs uppercase tracking-wider text-primary font-bold">Passo 2 • Selecione as Disciplinas</span>
-<button class="font-label-sm text-xs text-primary font-bold hover:underline" onclick="toggleAllDisciplines(true)" type="button">Selecionar Todas</button>
+<div class="disciplines-heading flex items-center justify-between gap-3 mb-4">
+<h4 class="font-title-md text-title-md font-bold text-on-secondary-fixed">Disciplinas de Engenharia Desejadas</h4>
+<button class="font-label-code text-label-code text-primary-container font-bold hover:underline" onclick="toggleAllDisciplines(true)" type="button">Selecionar todas</button>
 </div>
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="disciplines-container">
-<label class="flex items-center justify-between p-3.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-primary-container hover:bg-slate-100/80 cursor-pointer transition-all group">
-<div class="flex items-center gap-3">
-<input checked="" class="discipline-cb w-4 h-4 rounded text-primary-container accent-primary-container cursor-pointer" data-label="Projeto de Arquitetura" data-rate="13.50" name="discipline" type="checkbox"/>
-<span class="text-xs font-semibold text-slate-800 group-hover:text-primary transition-colors">Projeto de Arquitetura</span>
-</div>
-<span class="font-label-sm text-xs font-bold text-primary">R$ 13,50/m²</span>
+<label class="flex items-center justify-between p-3.5 rounded-lg bg-surface-container-low/5 cursor-pointer hover:bg-surface-container-low/10 transition-colors">
+<div class="flex items-center gap-3"><input checked="" class="discipline-cb w-4 h-4 rounded accent-[#ea8427] cursor-pointer" data-label="Projeto de Arquitetura" data-rate="13.50" name="discipline" type="checkbox"/><span class="font-body-md text-body-md font-medium text-on-secondary-fixed">Projeto de Arquitetura</span></div>
+<span class="font-label-code text-label-code text-on-secondary-fixed-variant font-semibold">R$ 13,50/m²</span>
 </label>
-<label class="flex items-center justify-between p-3.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-primary-container hover:bg-slate-100/80 cursor-pointer transition-all group">
-<div class="flex items-center gap-3">
-<input checked="" class="discipline-cb w-4 h-4 rounded text-primary-container accent-primary-container cursor-pointer" data-label="Projeto Estrutural (Concreto/Aço)" data-rate="14.00" name="discipline" type="checkbox"/>
-<span class="text-xs font-semibold text-slate-800 group-hover:text-primary transition-colors">Projeto Estrutural</span>
-</div>
-<span class="font-label-sm text-xs font-bold text-primary">R$ 14,00/m²</span>
+<label class="flex items-center justify-between p-3.5 rounded-lg bg-surface-container-low/5 cursor-pointer hover:bg-surface-container-low/10 transition-colors">
+<div class="flex items-center gap-3"><input checked="" class="discipline-cb w-4 h-4 rounded accent-[#ea8427] cursor-pointer" data-label="Projeto Estrutural (Concreto/Aço)" data-rate="14.00" name="discipline" type="checkbox"/><span class="font-body-md text-body-md font-medium text-on-secondary-fixed">Projeto Estrutural</span></div>
+<span class="font-label-code text-label-code text-on-secondary-fixed-variant font-semibold">R$ 14,00/m²</span>
 </label>
-<label class="flex items-center justify-between p-3.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-primary-container hover:bg-slate-100/80 cursor-pointer transition-all group">
-<div class="flex items-center gap-3">
-<input checked="" class="discipline-cb w-4 h-4 rounded text-primary-container accent-primary-container cursor-pointer" data-label="Instalações Elétricas Prediais" data-rate="12.50" name="discipline" type="checkbox"/>
-<span class="text-xs font-semibold text-slate-800 group-hover:text-primary transition-colors">Instalações Elétricas</span>
-</div>
-<span class="font-label-sm text-xs font-bold text-primary">R$ 12,50/m²</span>
+<label class="flex items-center justify-between p-3.5 rounded-lg bg-surface-container-low/5 cursor-pointer hover:bg-surface-container-low/10 transition-colors">
+<div class="flex items-center gap-3"><input checked="" class="discipline-cb w-4 h-4 rounded accent-[#ea8427] cursor-pointer" data-label="Instalações Elétricas Prediais" data-rate="12.50" name="discipline" type="checkbox"/><span class="font-body-md text-body-md font-medium text-on-secondary-fixed">Elétrico Predial</span></div>
+<span class="font-label-code text-label-code text-on-secondary-fixed-variant font-semibold">R$ 12,50/m²</span>
 </label>
-<label class="flex items-center justify-between p-3.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-primary-container hover:bg-slate-100/80 cursor-pointer transition-all group">
-<div class="flex items-center gap-3">
-<input checked="" class="discipline-cb w-4 h-4 rounded text-primary-container accent-primary-container cursor-pointer" data-label="Hidráulico de Água Fria" data-rate="9.50" name="discipline" type="checkbox"/>
-<span class="text-xs font-semibold text-slate-800 group-hover:text-primary transition-colors">Hidráulico Água Fria</span>
-</div>
-<span class="font-label-sm text-xs font-bold text-primary">R$ 9,50/m²</span>
+<label class="flex items-center justify-between p-3.5 rounded-lg bg-surface-container-low/5 cursor-pointer hover:bg-surface-container-low/10 transition-colors">
+<div class="flex items-center gap-3"><input checked="" class="discipline-cb w-4 h-4 rounded accent-[#ea8427] cursor-pointer" data-label="Hidráulico de Água Fria" data-rate="9.50" name="discipline" type="checkbox"/><span class="font-body-md text-body-md font-medium text-on-secondary-fixed">Hidráulico Água Fria</span></div>
+<span class="font-label-code text-label-code text-on-secondary-fixed-variant font-semibold">R$ 9,50/m²</span>
 </label>
-<label class="flex items-center justify-between p-3.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-primary-container hover:bg-slate-100/80 cursor-pointer transition-all group">
-<div class="flex items-center gap-3">
-<input checked="" class="discipline-cb w-4 h-4 rounded text-primary-container accent-primary-container cursor-pointer" data-label="Esgoto Sanitário &amp; Fossa/Filtro" data-rate="10.50" name="discipline" type="checkbox"/>
-<span class="text-xs font-semibold text-slate-800 group-hover:text-primary transition-colors">Esgoto Sanitário</span>
-</div>
-<span class="font-label-sm text-xs font-bold text-primary">R$ 10,50/m²</span>
+<label class="flex items-center justify-between p-3.5 rounded-lg bg-surface-container-low/5 cursor-pointer hover:bg-surface-container-low/10 transition-colors">
+<div class="flex items-center gap-3"><input checked="" class="discipline-cb w-4 h-4 rounded accent-[#ea8427] cursor-pointer" data-label="Esgoto Sanitário &amp; Fossa/Filtro" data-rate="10.50" name="discipline" type="checkbox"/><span class="font-body-md text-body-md font-medium text-on-secondary-fixed">Esgoto Sanitário</span></div>
+<span class="font-label-code text-label-code text-on-secondary-fixed-variant font-semibold">R$ 10,50/m²</span>
 </label>
-<label class="flex items-center justify-between p-3.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-primary-container hover:bg-slate-100/80 cursor-pointer transition-all group">
-<div class="flex items-center gap-3">
-<input class="discipline-cb w-4 h-4 rounded text-primary-container accent-primary-container cursor-pointer" data-label="Drenagem de Águas Pluviais" data-rate="9.50" name="discipline" type="checkbox"/>
-<span class="text-xs font-semibold text-slate-800 group-hover:text-primary transition-colors">Drenagem Pluvial</span>
-</div>
-<span class="font-label-sm text-xs font-bold text-primary">R$ 9,50/m²</span>
+<label class="flex items-center justify-between p-3.5 rounded-lg bg-surface-container-low/5 cursor-pointer hover:bg-surface-container-low/10 transition-colors">
+<div class="flex items-center gap-3"><input class="discipline-cb w-4 h-4 rounded accent-[#ea8427] cursor-pointer" data-label="Drenagem de Águas Pluviais" data-rate="9.50" name="discipline" type="checkbox"/><span class="font-body-md text-body-md font-medium text-on-secondary-fixed">Drenagem Pluvial</span></div>
+<span class="font-label-code text-label-code text-on-secondary-fixed-variant font-semibold">R$ 9,50/m²</span>
 </label>
-<label class="flex items-center justify-between p-3.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-primary-container hover:bg-slate-100/80 cursor-pointer transition-all group">
-<div class="flex items-center gap-3">
-<input class="discipline-cb w-4 h-4 rounded text-primary-container accent-primary-container cursor-pointer" data-label="SPDA / Para-raios NBR 5419" data-rate="6.00" name="discipline" type="checkbox"/>
-<span class="text-xs font-semibold text-slate-800 group-hover:text-primary transition-colors">SPDA / Para-raios</span>
-</div>
-<span class="font-label-sm text-xs font-bold text-primary">R$ 6,00/m²</span>
+<label class="flex items-center justify-between p-3.5 rounded-lg bg-surface-container-low/5 cursor-pointer hover:bg-surface-container-low/10 transition-colors">
+<div class="flex items-center gap-3"><input class="discipline-cb w-4 h-4 rounded accent-[#ea8427] cursor-pointer" data-label="SPDA / Para-raios NBR 5419" data-rate="6.00" name="discipline" type="checkbox"/><span class="font-body-md text-body-md font-medium text-on-secondary-fixed">SPDA (Para-raios)</span></div>
+<span class="font-label-code text-label-code text-on-secondary-fixed-variant font-semibold">R$ 6,00/m²</span>
 </label>
-<label class="flex items-center justify-between p-3.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-primary-container hover:bg-slate-100/80 cursor-pointer transition-all group">
-<div class="flex items-center gap-3">
-<input class="discipline-cb w-4 h-4 rounded text-primary-container accent-primary-container cursor-pointer" data-label="Combate a Incêndio PPCI CBMAM" data-rate="8.00" name="discipline" type="checkbox"/>
-<span class="text-xs font-semibold text-slate-800 group-hover:text-primary transition-colors">PPCI Incêndio CBMAM</span>
-</div>
-<span class="font-label-sm text-xs font-bold text-primary">R$ 8,00/m²</span>
+<label class="flex items-center justify-between p-3.5 rounded-lg bg-surface-container-low/5 cursor-pointer hover:bg-surface-container-low/10 transition-colors">
+<div class="flex items-center gap-3"><input class="discipline-cb w-4 h-4 rounded accent-[#ea8427] cursor-pointer" data-label="Combate a Incêndio PPCI CBMAM" data-rate="8.00" name="discipline" type="checkbox"/><span class="font-body-md text-body-md font-medium text-on-secondary-fixed">PPCI Incêndio CBMAM</span></div>
+<span class="font-label-code text-label-code text-on-secondary-fixed-variant font-semibold">R$ 8,00/m²</span>
 </label>
 </div>
 </div>
 </div>
-<!-- Coluna Direita: Resumo Calculado em Tempo Real -->
-<div class="lg:col-span-5 flex flex-col justify-between bg-navy-950 text-white rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-800">
+<div class="summary-panel lg:col-span-5 bg-surface-container-lowest text-on-surface rounded-xl p-6 md:p-8 shadow-2xl flex flex-col justify-between h-full">
 <div>
-<div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-800">
-<span class="font-label-sm text-xs uppercase tracking-wider text-primary-fixed-dim font-bold">Resumo Financeiro 2026</span>
-<span class="px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 font-label-sm text-xs font-bold">Validação CREA</span>
+<div class="flex items-center justify-between gap-3 pb-4">
+<span class="font-label-code text-label-code text-primary uppercase font-bold tracking-wider">Resumo Financeiro 2026</span>
+<span class="shrink-0 whitespace-nowrap px-2.5 py-0.5 rounded bg-tertiary/10 text-tertiary font-label-code text-label-code">Validação CREA</span>
 </div>
-<h4 class="font-headline-sm text-lg text-white font-bold mb-4">Composição dos Honorários</h4>
-<!-- Lista Dinâmica de Itens -->
-<div class="flex flex-col gap-2 max-h-52 overflow-y-auto pr-1 mb-6" id="breakdown-list">
-<!-- Injetado por JS -->
-</div>
-<!-- Quadro de Métricas -->
-<div class="p-4 rounded-2xl bg-navy-900 border border-slate-800 mb-6 flex flex-col gap-2 text-xs">
-<div class="flex justify-between text-slate-300">
-<span>Área Total Considerada:</span>
-<span class="font-label-sm font-bold text-white" id="summary-area">120 m²</span>
-</div>
-<div class="flex justify-between text-slate-300">
-<span>Taxa Média Agrupada:</span>
-<span class="font-label-sm font-bold text-primary-fixed-dim" id="summary-rate">R$ 60,00/m²</span>
-</div>
-<div class="flex justify-between text-slate-300">
-<span>Compatibilização BIM:</span>
-<span class="font-label-sm text-emerald-400 font-bold">Inclusa (LOD 400)</span>
-</div>
-<div class="flex justify-between text-slate-300">
-<span>ART Formal de Projeto:</span>
-<span class="font-label-sm text-emerald-400 font-bold">Inclusa</span>
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface mb-4">Composição dos Honorários</h3>
+<div class="flex flex-col gap-2.5 pb-6 max-h-60 overflow-y-auto pr-1" id="breakdown-list"></div>
+<div class="flex flex-col gap-2 py-4 text-body-sm text-secondary">
+<div class="flex justify-between gap-3"><span>Área Total Considerada:</span><span class="font-bold text-on-surface" id="summary-area">120 m²</span></div>
+<div class="flex justify-between gap-3"><span>Taxa Média Agrupada:</span><span class="font-bold text-primary" id="summary-rate">R$ 60,00/m²</span></div>
+<div class="flex justify-between gap-3"><span>Compatibilização BIM:</span><span class="text-tertiary font-medium">Inclusa (LOD 400)</span></div>
+<div class="flex justify-between gap-3"><span>ART Formal de Projeto:</span><span class="text-on-surface font-medium">Inclusa</span></div>
 </div>
 </div>
-<!-- Bloco de Destaque com Valor Total -->
-<div class="p-5 rounded-2xl bg-gradient-to-br from-primary to-primary-container text-white flex flex-col gap-1 mb-6 shadow-xl">
-<span class="font-label-sm text-xs uppercase tracking-wider opacity-90 font-bold">Valor Total Estimado</span>
-<div class="flex items-baseline gap-2">
-<span class="font-display-xl text-3xl sm:text-4xl font-bold tracking-tight text-white" id="summary-total">R$ 7.200,00</span>
+<div class="mt-6 pt-6">
+<div class="p-4 rounded-xl bg-surface-container mb-6 flex flex-col">
+<span class="font-label-code text-label-code uppercase tracking-wider text-secondary font-bold">Valor Total Estimado</span>
+<span class="font-headline-lg text-headline-lg font-extrabold text-primary" id="summary-total">R$ 7.200,00</span>
+<span class="font-label-code text-label-code text-secondary">Condições especiais por etapa aprovada</span>
 </div>
-<span class="font-label-sm text-[11px] text-primary-fixed opacity-90">Condições especiais por etapa aprovada</span>
-</div>
-</div>
-<!-- Ações -->
 <div class="flex flex-col gap-3">
-<button class="w-full py-4 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-sm shadow-[0_4px_20px_rgba(16,185,129,0.35)] transition-all flex items-center justify-center gap-2 active:scale-95 cursor-pointer" type="submit">
-<span class="material-symbols-outlined text-[20px]">chat</span>
+<button class="w-full py-4 px-6 rounded-lg bg-[#25D366] text-surface-container-lowest font-title-md text-title-md font-bold text-center hover:brightness-105 transition-all flex items-center justify-center gap-2 shadow-lg" type="submit">
+<span class="material-symbols-outlined text-[22px]">chat</span>
 <span>Enviar Orçamento ao WhatsApp</span>
 </button>
-<button class="w-full py-3 rounded-xl bg-navy-800 hover:bg-navy-700 text-slate-200 border border-slate-700 font-semibold text-xs font-label-sm transition-all flex items-center justify-center gap-2 cursor-pointer" onclick="generateSimulatedPDF()" type="button">
-<span class="material-symbols-outlined text-[18px] text-primary-fixed-dim">download</span>
+<button class="w-full py-3 px-6 rounded-lg bg-surface-container-high text-on-surface font-title-md text-title-md font-semibold text-center hover:bg-surface-variant transition-colors flex items-center justify-center gap-2" onclick="generateSimulatedPDF(event)" type="button">
+<span class="material-symbols-outlined text-[18px]">picture_as_pdf</span>
 <span>Baixar Memória Técnica (PDF)</span>
 </button>
+</div>
 </div>
 </div>
 </form>
 </div>
 </div>
 </section>
-<!-- SECTION 6: CONTATO DIRETO & ATENDIMENTO EM MANAUS -->
-<section class="w-full py-24 bg-white relative tech-grid-light" id="contato">
-<div class="max-w-7xl mx-auto px-6 lg:px-10">
-<div class="bg-navy-900 text-white rounded-3xl p-8 lg:p-14 shadow-2xl relative overflow-hidden reveal">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- 6. CONTATO -->
+<section class="w-full bg-surface py-20 relative" id="contato">
+<div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin">
+<div class="w-full rounded-2xl bg-surface-container p-8 md:p-14 shadow-2xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
 <div class="lg:col-span-7 flex flex-col gap-6">
-<div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-primary/25 border border-primary-container/40 text-primary-fixed-dim font-label-sm text-xs uppercase font-bold w-max">
-<span class="material-symbols-outlined text-[16px]">support_agent</span> Atendimento Consultivo Direto
-              </div>
-<h2 class="font-headline-lg text-2xl sm:text-3xl lg:text-4xl text-white font-bold tracking-tight">
-                Vamos conversar sobre a viabilidade da sua obra em Manaus?
-              </h2>
-<p class="text-sm sm:text-base text-slate-300 leading-relaxed">
-                Envie o croqui ou a planta baixa e marque uma reunião. A gente olha a obra com você antes de avançar o projeto.
-              </p>
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-<a class="p-4 rounded-2xl bg-navy-800/90 border border-slate-700 hover:border-emerald-500 transition-all flex items-center gap-3.5 group" href="https://wa.me/5592992262786" rel="noopener noreferrer" target="_blank">
-<div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center group-hover:scale-105 transition-transform">
-<span class="material-symbols-outlined text-[24px]">chat</span>
-</div>
+<div class="contact-kicker inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high text-primary font-label-code text-label-code uppercase tracking-wider self-start">
+<span class="material-symbols-outlined text-[16px]">support_agent</span>
+              Atendimento Consultivo Direto
+            </div>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg font-extrabold text-on-surface tracking-tight leading-tight">Vamos conversar sobre a viabilidade da sua obra em Manaus?</h2>
+<p class="font-body-lg text-body-lg text-secondary max-w-xl leading-relaxed">Envie o croqui ou a planta baixa e marque uma reunião. A gente olha a obra com você antes de avançar o projeto.</p>
+<div class="grid grid-cols-1 sm:grid-cols-[auto_minmax(0,1fr)] gap-4 pt-2">
+<a class="p-4 pr-6 rounded-xl bg-surface-container-high hover:bg-surface-variant transition-colors flex items-center gap-3" href="https://wa.me/5592992262786" rel="noopener noreferrer" target="_blank">
+<div class="w-10 h-10 shrink-0 rounded-lg bg-surface-container flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[22px]">chat</span></div>
 <div>
-<span class="font-label-sm text-xs text-slate-400 uppercase block">WhatsApp</span>
-<span class="font-headline-sm text-sm font-bold text-white">(92) 99226-2786</span>
+<p class="font-label-code text-label-code text-secondary uppercase font-semibold">WhatsApp Técnico</p>
+<p class="font-title-md text-title-md text-on-surface font-bold">(92) 99226-2786</p>
 </div>
 </a>
-<a class="p-4 rounded-2xl bg-navy-800/90 border border-slate-700 hover:border-primary-container transition-all flex items-center gap-3.5 group" href="mailto:contato@fsantoseng.com.br">
-<div class="w-12 h-12 rounded-xl bg-primary/20 text-primary-fixed-dim flex items-center justify-center group-hover:scale-105 transition-transform">
-<span class="material-symbols-outlined text-[24px]">mail</span>
-</div>
-<div>
-<span class="font-label-sm text-xs text-slate-400 uppercase block">Envio de Arquivos IFC/DWG</span>
-<span class="font-label-sm text-xs font-bold text-white block break-words">contato@fsantoseng.com.br</span>
+<a class="p-4 rounded-xl bg-surface-container-high hover:bg-surface-variant transition-colors flex items-center gap-3" href="mailto:kfengenhariacontato@gmail.com">
+<div class="w-10 h-10 shrink-0 rounded-lg bg-surface-container flex items-center justify-center text-tertiary"><span class="material-symbols-outlined text-[22px]">mail</span></div>
+<div class="min-w-0">
+<p class="font-label-code text-label-code text-secondary uppercase font-semibold">Envio de Arquivos IFC/DWG</p>
+<p class="font-title-md text-body-md text-on-surface font-bold [overflow-wrap:anywhere]">kfengenhariacontato@gmail.com</p>
 </div>
 </a>
 </div>
 </div>
-<!-- Coluna Direita: Reunião -->
-<div class="lg:col-span-5 flex flex-col gap-4 bg-navy-850 p-6 sm:p-8 rounded-2xl border border-slate-700/80">
-<div class="flex items-center gap-3 mb-2">
-<span class="material-symbols-outlined text-primary-container text-[30px]">event_available</span>
+<div class="meeting-card lg:col-span-5 bg-surface-container-high rounded-xl p-6 md:p-8 shadow-xl flex flex-col gap-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 shrink-0 rounded-lg bg-primary-container/20 flex items-center justify-center text-primary-container"><span class="material-symbols-outlined text-[24px]">calendar_month</span></div>
 <div>
-<h4 class="font-headline-sm text-base text-white font-bold">Marque uma reunião</h4>
-<p class="text-xs text-slate-400">Atendimento em Manaus, no horário combinado</p>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold">Marque uma Reunião</h3>
+<p class="font-body-sm text-body-sm text-secondary">Atendimento em Manaus, no horário combinado</p>
 </div>
 </div>
-<div class="p-4 rounded-xl bg-navy-900 border border-slate-800 flex items-start gap-3">
-<span class="material-symbols-outlined text-primary-container text-[20px] mt-0.5">groups</span>
-<p class="text-xs text-slate-300 leading-relaxed">
-<strong class="text-white">A conversa acontece na reunião</strong><br/>
-                  Online ou no local da obra. Não temos escritório próprio.
-                </p>
+<div class="flex flex-col gap-3">
+<div class="p-4 rounded-lg bg-surface-container flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">groups</span>
+<div>
+<h4 class="font-title-md text-body-md text-on-surface font-bold">A conversa acontece na reunião</h4>
+<p class="font-body-sm text-body-sm text-secondary">Online via Google Meet ou presencialmente no local da sua obra.</p>
 </div>
-<div class="p-4 rounded-xl bg-navy-900 border border-slate-800 flex items-start gap-3">
-<span class="material-symbols-outlined text-amber-tech text-[20px] mt-0.5">chat</span>
-<p class="text-xs text-slate-300 leading-relaxed">
-<strong class="text-white">Chame e combine o dia</strong><br/>
-                  Mande o croqui, a planta ou a dúvida. A gente marca o melhor horário.
-                </p>
 </div>
-<a class="inline-flex items-center justify-center gap-2 min-h-12 w-full py-3.5 rounded-xl bg-primary-container text-white text-xs font-label-sm uppercase font-bold tracking-wider transition-all hover:brightness-110" href="https://wa.me/5592992262786?text=Ol%C3%A1%20Eng.%20Francirley%2C%20gostaria%20de%20marcar%20uma%20reuni%C3%A3o%20sobre%20o%20meu%20projeto." rel="noopener noreferrer" target="_blank">
-<span class="material-symbols-outlined text-[18px]">calendar_month</span>
-              Marcar reunião
-            </a>
-<div class="mt-2 text-center pt-2 border-t border-slate-800">
-<span class="font-label-sm text-xs text-slate-400">CREA-AM Nº 26490-D • Certificação BIM Nacional</span>
+<div class="p-4 rounded-lg bg-surface-container flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary text-[20px] mt-0.5">mark_chat_read</span>
+<div>
+<h4 class="font-title-md text-body-md text-on-surface font-bold">Chame e combine o dia</h4>
+<p class="font-body-sm text-body-sm text-secondary">Mande o croqui, a planta ou a dúvida. A gente marca o melhor horário.</p>
 </div>
+</div>
+</div>
+<a class="w-full py-3.5 px-6 rounded-lg bg-tertiary-container text-on-tertiary-container font-title-md text-title-md font-bold text-center hover:bg-tertiary transition-colors flex items-center justify-center gap-2 shadow-md" href="https://wa.me/5592992262786?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20reuni%C3%A3o%20t%C3%A9cnica%20com%20a%20KF%20Engenharia." rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[20px]">event_available</span>
+<span>Marcar Reunião Técnica</span>
+</a>
+<div class="text-center font-label-code text-label-code text-secondary-fixed-dim">KF Engenharia • Atendimento em Manaus/AM</div>
 </div>
 </div>
 </div>
 </div>
 </section>
 </main>
-<!-- FOOTER SOFISTICADO COM LOGO BRANCA /stitch/img/stitch-9.png -->
-<footer class="w-full bg-navy-950 text-slate-400 border-t border-slate-800/80">
-<div class="max-w-7xl mx-auto px-6 lg:px-10 pt-16 pb-12">
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-14">
-<!-- Logo Branca em Destaque -->
-<div class="lg:col-span-2 flex flex-col gap-4">
-<div class="flex items-center">
-<img alt="FSantos Engenharia" class="h-11 w-auto object-contain" src="/stitch/img/stitch-9.png"/>
+<footer class="w-full bg-surface-container-low text-on-surface pt-space-xl pb-space-lg"><div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter mb-space-xl">
+<div class="lg:col-span-4 flex flex-col gap-space-md">
+<div class="flex items-center"><div class="bg-white px-3 py-1.5 rounded-lg inline-flex items-center"><img src="/assets/img/logo-kf-720.png" alt="KF Engenharia" class="h-8 w-auto object-contain" width="179" height="40" loading="lazy" decoding="async"/></div></div>
+<p class="font-body-md text-body-md text-secondary max-w-sm">Engenharia estrutural de alta precisão, modelagem OpenBIM e compatibilização multidisciplinar em Manaus-AM. Soluções de alta performance com rigor normativo.</p>
+<div class="flex flex-wrap items-center gap-space-xs pt-space-xs"><span class="font-label-code text-label-code px-space-sm py-space-xs bg-surface-container rounded text-primary-fixed-dim">NBR 6118</span><span class="font-label-code text-label-code px-space-sm py-space-xs bg-surface-container rounded text-tertiary-fixed-dim">NBR 15575</span><span class="font-label-code text-label-code px-space-sm py-space-xs bg-surface-container rounded text-secondary">ART CREA-AM</span></div>
 </div>
-<p class="text-xs sm:text-sm text-slate-400 max-w-sm leading-relaxed">
-            Engenharia de precisão, compatibilização OpenBIM e arquitetura contemporânea em Manaus. Rigor matemático e segurança estrutural em cada detalhe executivo.
-          </p>
-<div class="flex flex-wrap items-center gap-2 pt-2">
-<span class="px-3 py-1 rounded-full bg-navy-900 border border-slate-800 font-label-sm text-xs text-slate-300">CREA-AM 26490-D</span>
-<span class="px-3 py-1 rounded-full bg-navy-900 border border-slate-800 font-label-sm text-xs text-slate-300">NBR 6118 &amp; 15575</span>
+<div class="lg:col-span-2 flex flex-col gap-space-sm"><h4 class="font-title-md text-title-md text-on-surface font-semibold">Navegação</h4><ul class="flex flex-col gap-space-xs font-body-md text-body-md text-secondary">
+<li><a class="hover:text-on-surface transition-colors" href="#sobre">Sobre a KF</a></li>
+<li><a class="hover:text-on-surface transition-colors" href="#projetos">Portfólio de Projetos</a></li>
+<li><a class="hover:text-on-surface transition-colors" href="#softwares">Softwares e CAD</a></li>
+<li><a class="hover:text-on-surface transition-colors" href="/ferramentas" target="_top">Calculadoras &amp; Ferramentas</a></li>
+<li><a class="hover:text-on-surface transition-colors" href="#contato">Canal de Contato</a></li>
+</ul></div>
+<div class="lg:col-span-3 flex flex-col gap-space-sm"><h4 class="font-title-md text-title-md text-on-surface font-semibold">Disciplinas Técnicas</h4><ul class="flex flex-col gap-space-xs font-body-md text-body-md text-secondary">
+<li>Projetos Estruturais (Concreto &amp; Aço)</li><li>Hidráulico &amp; Sanitário</li><li>Elétrico &amp; SPDA</li><li>PPCI Bombeiros CBMAM</li><li>Drenagem &amp; Pavimentação</li>
+</ul></div>
+<div class="lg:col-span-3 flex flex-col gap-space-sm"><h4 class="font-title-md text-title-md text-on-surface font-semibold">Atendimento Manaus</h4><div class="flex flex-col gap-space-xs font-body-md text-body-md text-secondary">
+<div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[18px] text-primary">location_on</span><span>Manaus - Amazonas, Brasil</span></div>
+<a class="flex items-center gap-space-xs hover:text-primary transition-colors" href="https://wa.me/5592992262786" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined text-[18px] text-primary">chat</span><span>Chamar no WhatsApp</span></a>
+<a class="flex items-center gap-space-xs hover:text-primary transition-colors break-all" href="mailto:kfengenhariacontato@gmail.com"><span class="material-symbols-outlined text-[18px] text-primary">mail</span><span>kfengenhariacontato@gmail.com</span></a>
+</div><div class="mt-space-sm p-space-sm bg-surface-container rounded-lg"><p class="font-body-sm text-body-sm text-secondary">Reuniões online ou no local combinado.</p></div></div>
 </div>
-</div>
-<!-- Links Rápidos -->
-<div class="flex flex-col gap-2.5">
-<span class="font-headline-sm text-sm text-white font-bold mb-1">Navegação</span>
-<a class="text-xs hover:text-white transition-colors" href="#sobre">Sobre o Engenheiro</a>
-<a class="text-xs hover:text-white transition-colors" href="#portfolio">Portfólio de Obras</a>
-<a class="text-xs hover:text-white transition-colors" href="#ferramentas">Softwares &amp; IA</a>
-<a class="text-xs hover:text-white transition-colors" href="#orcamento-simulador">Simulador 2026</a>
-</div>
-<div class="flex flex-col gap-2.5">
-<span class="font-headline-sm text-sm text-white font-bold mb-1">Disciplinas</span>
-<span class="text-xs text-slate-400">Projetos Estruturais</span>
-<span class="text-xs text-slate-400">Hidráulico &amp; Sanitário</span>
-<span class="text-xs text-slate-400">Elétrico &amp; SPDA</span>
-<span class="text-xs text-slate-400">PPCI Bombeiros CBMAM</span>
-<span class="text-xs text-slate-400">Drenagem &amp; Pavimentação</span>
-</div>
-<div class="flex flex-col gap-2.5">
-<span class="font-headline-sm text-sm text-white font-bold mb-1">Atendimento</span>
-<p class="text-xs text-slate-400">Reuniões em Manaus - AM<br/>Online ou no local combinado</p>
-<span class="font-label-sm text-xs text-primary-fixed-dim mt-1">contato@fsantoseng.com.br</span>
-<a class="font-label-sm text-xs text-white font-bold hover:text-primary-fixed-dim transition-colors" href="https://wa.me/5592992262786" rel="noopener noreferrer" target="_blank">Chamar no WhatsApp</a>
-</div>
-</div>
-<div class="pt-8 border-t border-slate-800/80 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-label-sm">
-<p>© 2026 FSantos Engenharia &amp; Arquitetura. Todos os direitos reservados. Manaus - AM.</p>
-<p>Projetado com rigor técnico, compatibilização BIM e integridade normativa.</p>
-</div>
-</div>
-</footer>
-<!-- SCRIPT INTERATIVO LEVE (Filtros, Simulador & IntersectionObserver) -->
+<div class="pt-space-md bg-surface-container-lowest/50 rounded-lg px-space-md py-space-sm flex flex-col md:flex-row items-center justify-between gap-space-sm text-center md:text-left"><p class="font-body-sm text-body-sm text-secondary">© 2026 KF Engenharia. Todos os direitos reservados. Manaus-AM.</p><p class="font-label-code text-label-code text-secondary-fixed-dim">CREA-AM • NBR 6118 • OpenBIM</p></div>
+</div></footer>
 <script>
-    // Reveal On Scroll Animation
-    document.addEventListener("DOMContentLoaded", () => {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-          }
-        });
-      }, { threshold: 0.1 });
-
-      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    });
-
-    // Portfolio Filtering
-    function filterPortfolio(category, clickedBtn) {
-      const buttons = document.querySelectorAll('.portfolio-tab');
-      buttons.forEach(btn => {
-        btn.classList.remove('bg-primary-container', 'text-white', 'font-bold');
-        btn.classList.add('bg-navy-800', 'text-slate-300');
-      });
-      clickedBtn.classList.remove('bg-navy-800', 'text-slate-300');
-      clickedBtn.classList.add('bg-primary-container', 'text-white', 'font-bold');
-
-      const items = document.querySelectorAll('.portfolio-item');
-      items.forEach(item => {
-        if (category === 'todos' || item.getAttribute('data-category') === category) {
-          item.style.display = 'flex';
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    }
-
-    // Scroll Helper
-    function scrollToEstimator() {
-      const el = document.getElementById('orcamento-simulador');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }
-
-    // Interactive Budget Simulator Logic
     const areaInput = document.getElementById('calc-area-input');
     const areaRange = document.getElementById('calc-area-range');
     const checkboxes = document.querySelectorAll('.discipline-cb');
@@ -637,9 +500,39 @@
     const summaryRate = document.getElementById('summary-rate');
     const summaryTotal = document.getElementById('summary-total');
 
+    const AREA_MIN = 20, AREA_MAX = 2500;
+
+    function readArea() {
+      const value = parseFloat(areaInput.value);
+      if (!Number.isFinite(value)) return AREA_MIN;
+      return Math.min(AREA_MAX, Math.max(AREA_MIN, Math.round(value)));
+    }
+
+    function checkContactFields() {
+      const name = document.getElementById('calc-name');
+      const phone = document.getElementById('calc-phone');
+      const digits = phone.value.replace(/\D/g, '');
+      name.setCustomValidity(name.value.trim().length >= 2 ? '' : 'Informe o nome do contratante.');
+      phone.setCustomValidity(digits.length >= 10 && digits.length <= 13 ? '' : 'Informe um telefone com DDD. Ex.: (92) 99999-9999');
+    }
+
+    function validSimulatorForm() {
+      checkContactFields();
+      areaInput.value = readArea();
+      updateCalculations();
+      if (!document.getElementById('estimator-form').reportValidity()) return false;
+      if (!document.querySelector('.discipline-cb:checked')) {
+        alert('Selecione ao menos uma disciplina.');
+        return false;
+      }
+      return true;
+    }
+
+    ['calc-name', 'calc-phone'].forEach(id => document.getElementById(id).addEventListener('input', checkContactFields));
+    checkContactFields();
+
     function updateCalculations() {
-      let area = parseFloat(areaInput.value) || 20;
-      if (area < 20) area = 20;
+      const area = readArea();
 
       let totalRate = 0;
       breakdownList.innerHTML = '';
@@ -652,10 +545,10 @@
           totalRate += rate;
 
           const row = document.createElement('div');
-          row.className = 'flex items-center justify-between py-1.5 text-xs text-slate-300 border-b border-slate-800/50';
+          row.className = 'flex justify-between items-center gap-3 text-body-md py-1';
           row.innerHTML = `
-            <span class="truncate max-w-[210px] text-slate-300">${label}</span>
-            <span class="font-label-sm text-xs font-semibold text-white">R$ ${subtotal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+            <span class="text-secondary truncate pr-2">${label}</span>
+            <span class="font-bold text-on-surface whitespace-nowrap">R$ ${subtotal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
           `;
           breakdownList.appendChild(row);
         }
@@ -674,8 +567,13 @@
         updateCalculations();
       });
 
-      areaInput.addEventListener('input', (e) => {
-        areaRange.value = e.target.value;
+      areaInput.addEventListener('input', () => {
+        areaRange.value = readArea();
+        updateCalculations();
+      });
+
+      areaInput.addEventListener('change', () => {
+        areaInput.value = readArea();
         updateCalculations();
       });
 
@@ -683,7 +581,6 @@
         cb.addEventListener('change', updateCalculations);
       });
 
-      // Compute on load
       updateCalculations();
     }
 
@@ -693,12 +590,12 @@
     }
 
     function sendToWhatsApp() {
-      const name = document.getElementById('calc-name').value || 'Cliente';
-      const phone = document.getElementById('calc-phone').value || '';
-      const email = document.getElementById('calc-email').value || 'Não informado';
-      const city = document.getElementById('calc-city').value || 'Manaus/AM';
-      const desc = document.getElementById('calc-desc').value || 'Projeto Residencial/Comercial';
-      const area = areaInput.value;
+      if (!validSimulatorForm()) return;
+      const name = document.getElementById('calc-name').value.trim();
+      const phone = document.getElementById('calc-phone').value.trim();
+      const city = document.getElementById('calc-city').value.trim() || 'Manaus/AM';
+      const desc = document.getElementById('calc-desc').value.trim() || 'Projeto Residencial/Comercial';
+      const area = readArea();
       const total = summaryTotal.textContent;
 
       let disciplines = [];
@@ -706,7 +603,7 @@
         if (cb.checked) disciplines.push(cb.getAttribute('data-label'));
       });
 
-      const message = `*SOLICITAÇÃO DE ORÇAMENTO - FSANTOS ENGENHARIA 2026*%0A%0A` +
+      const message = `*SOLICITAÇÃO DE ORÇAMENTO - KF ENGENHARIA 2026*%0A%0A` +
         `*Cliente:* ${encodeURIComponent(name)}%0A` +
         `*WhatsApp:* ${encodeURIComponent(phone)}%0A` +
         `*Local:* ${encodeURIComponent(city)}%0A` +
@@ -714,16 +611,12 @@
         `*Área do Projeto:* ${area} m²%0A` +
         `*Disciplinas Selecionadas:*%0A- ${disciplines.map(d => encodeURIComponent(d)).join('%0A- ')}%0A%0A` +
         `*Valor Estimado Total:* ${encodeURIComponent(total)}%0A%0A` +
-        `_Enviado através do Simulador Oficial da FSantos Engenharia._`;
+        `_Enviado através do Simulador Oficial da KF Engenharia._`;
 
-      window.open(`https://wa.me/5592992262786?text=${message}`, '_blank');
+      window.open(`https://wa.me/5592992262786?text=${message}`, '_blank', 'noopener');
     }
 
-    function generateSimulatedPDF() {
-      const name = document.getElementById('calc-name').value || 'Cliente';
-      const area = areaInput.value;
-      const total = summaryTotal.textContent;
-      alert(`[FSANTOS ENGENHARIA 2026]\n\nPré-proposta gerada com sucesso para ${name}!\nÁrea: ${area} m²\nValor Estimado: ${total}\n\nO documento inclui especificações NBR 6118 e compatibilização BIM.`);
-    }
   </script>
+<nav class="mobile-action-bar" aria-label="Ações rápidas"><a href="#projetos">Ver projetos <span aria-hidden="true">↗</span></a><a href="https://wa.me/5592992262786" target="_blank" rel="noopener noreferrer">Falar no WhatsApp <span aria-hidden="true">↗</span></a></nav></body></html>
+
 <nav class="mobile-action-bar" aria-label="Ações rápidas"><a href="#portfolio">Ver projetos <span aria-hidden="true">↗</span></a><a href="https://wa.me/5592992262786" target="_blank" rel="noopener noreferrer">Falar no WhatsApp <span aria-hidden="true">↗</span></a></nav></body></html>

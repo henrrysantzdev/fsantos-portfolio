@@ -124,7 +124,11 @@ export function PainelPage() {
   }
 
   function exportCsv() {
-    const cell = (value: unknown) => `"${String(value ?? "").replace(/"/g, '""')}"`
+    // Leads são criados por visitantes sem login: texto iniciado por = + - @ viraria fórmula ao abrir no Excel.
+    const cell = (value: unknown) => {
+      const text = String(value ?? "")
+      return `"${(/^[=+\-@\t\r]/.test(text) ? "'" + text : text).replace(/"/g, '""')}"`
+    }
     const header = ["data", "numero", "cliente", "telefone", "email", "projeto", "cidade", "area_m2", "itens", "total", "total_por_m2", "status", "notas"]
     const lines = filtered.map((item) =>
       [
@@ -160,8 +164,7 @@ export function PainelPage() {
       <header className="sticky top-0 z-40 border-b border-white/10 bg-background/90 backdrop-blur-md">
         <div className="mx-auto flex min-h-16 max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-2">
           <Link to="/" className="flex items-center gap-2 font-semibold">
-            <img src="/assets/img/logo-fsantos.png" alt="" className="h-9 w-auto" />
-            FSantos Engenharia
+            <img src="/assets/img/logo-kf.png" alt="KF Engenharia" className="h-9 w-auto" />
           </Link>
           {user && (
             <div className="flex flex-wrap items-center justify-end gap-3 text-sm text-muted-foreground">
@@ -178,9 +181,9 @@ export function PainelPage() {
           <p className="text-muted-foreground">Carregando…</p>
         ) : !user ? (
           <section className="mx-auto max-w-md rounded-2xl border border-white/10 bg-card p-8 text-center">
-            <img src="/assets/img/logo-fsantos.png" alt="" className="mx-auto h-24" />
+            <img src="/assets/img/logo-kf.png" alt="" className="mx-auto h-24" />
             <h1 className="mt-4 text-3xl font-semibold">Área restrita</h1>
-            <p className="mt-2 text-muted-foreground">Painel de orçamentos da FSantos Engenharia. Acesso exclusivo do administrador.</p>
+            <p className="mt-2 text-muted-foreground">Painel de orçamentos da KF Engenharia. Acesso exclusivo do administrador.</p>
             <Button type="button" className="mt-6 h-10 px-4" onClick={entrar}>
               Entrar com Google
             </Button>

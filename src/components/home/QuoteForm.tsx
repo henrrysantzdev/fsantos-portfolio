@@ -118,7 +118,7 @@ export function QuoteForm() {
     <section id="orcamento" className="mx-auto max-w-6xl scroll-mt-20 px-4 py-16">
       <h2 className="border-l-4 border-primary pl-3 text-3xl font-semibold">Orçamento online</h2>
       <p className="mt-3 max-w-3xl text-muted-foreground">
-        Simule os honorários de elaboração de projeto conforme a tabela padrão da FSantos (valores por m² de área de projeto). Você pode incluir mais de um projeto no mesmo orçamento.
+        Simule os honorários de elaboração de projeto conforme a tabela padrão da KF Engenharia (valores por m² de área de projeto). Você pode incluir mais de um projeto no mesmo orçamento.
       </p>
       <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <Field label="Nome do cliente *">
@@ -262,7 +262,7 @@ export function QuoteForm() {
         </Table>
       </div>
       <p className="mt-4 text-sm text-muted-foreground">
-        Valores de referência; a proposta final depende da análise do projeto. Ao gerar a proposta, seus dados são registrados para contato da FSantos.
+        Valores de referência; a proposta final depende da análise do projeto. Ao gerar a proposta, seus dados são registrados para contato da KF Engenharia.
       </p>
       <p className={error ? "mt-2 text-sm text-destructive" : "mt-2 text-sm text-primary"} role="status">
         {message}

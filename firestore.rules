@@ -21,23 +21,221 @@ service cloud.firestore {
         && str(c.email, 0, 120);
     }
 
-    function validNovoOrcamento(d) {
-      return d.keys().hasOnly(['numero', 'cliente', 'projeto', 'cidade', 'itens', 'total', 'totalPorM2', 'status', 'createdAt'])
-        && d.keys().hasAll(['numero', 'cliente', 'projeto', 'cidade', 'itens', 'total', 'totalPorM2', 'status', 'createdAt'])
+    function validDesconto(d) {
+      return (!('descPct' in d) || (d.descPct is number && d.descPct >= 0 && d.descPct <= 50))
+        && (!('desc' in d) || (d.desc is number && d.desc >= 0 && d.desc <= 50000000));
+    }
+
+    function validPagamento(d) {
+      return !('pagamento' in d) || (d.pagamento is map
+        && d.pagamento.keys().hasOnly(['pix', 'banco', 'titular'])
+        && (!('pix' in d.pagamento) || str(d.pagamento.pix, 0, 120))
+        && (!('banco' in d.pagamento) || str(d.pagamento.banco, 0, 120))
+        && (!('titular' in d.pagamento) || str(d.pagamento.titular, 0, 120)));
+    }
+
+    function validOrcBase(d) {
+      return d.keys().hasOnly(['numero', 'uid', 'cliente', 'projeto', 'cidade', 'itens', 'subtotal', 'artPct', 'art', 'total', 'totalPorM2', 'pagamento', 'descPct', 'desc', 'status', 'notas', 'createdAt', 'updatedAt'])
+        && validPagamento(d)
+        && validDesconto(d)
+        && d.keys().hasAll(['numero', 'uid', 'cliente', 'projeto', 'cidade', 'itens', 'subtotal', 'artPct', 'art', 'total', 'totalPorM2', 'status', 'createdAt'])
         && d.numero is string && d.numero.matches('^ORC-[0-9]{4}-[A-Z0-9]{4}$')
         && validCliente(d.cliente)
         && str(d.projeto, 0, 160)
         && str(d.cidade, 0, 100)
         && d.itens is list && d.itens.size() >= 1 && d.itens.size() <= 10
+        && d.subtotal is number && d.subtotal >= 0 && d.subtotal <= 100000000
+        && d.artPct is number && d.artPct >= 0 && d.artPct <= 20
+        && d.art is number && d.art >= 0 && d.art <= 20000000
+        && d.total is number && d.total >= 0 && d.total <= 100000000
+        && d.totalPorM2 is number && d.totalPorM2 >= 0 && d.totalPorM2 <= 100000;
+    }
+
+    function validNovoOrcamento(d) {
+      return validOrcBase(d)
+        && d.uid == request.auth.uid
+        && d.status == 'novo'
+        && d.createdAt == request.time
+        && !('notas' in d)
+        && !('updatedAt' in d);
+    }
+
+    // Lead: proposta gerada SEM login (visitante). Só criação pública; sem uid.
+    function validLead(d) {
+      return d.keys().hasOnly(['numero', 'cliente', 'projeto', 'cidade', 'itens', 'subtotal', 'artPct', 'art', 'total', 'totalPorM2', 'pagamento', 'descPct', 'desc', 'status', 'semLogin', 'createdAt'])
+        && validPagamento(d)
+        && validDesconto(d)
+        && d.keys().hasAll(['numero', 'cliente', 'projeto', 'cidade', 'itens', 'subtotal', 'artPct', 'art', 'total', 'totalPorM2', 'status', 'semLogin', 'createdAt'])
+        && d.semLogin == true
+        && d.numero is string && d.numero.matches('^ORC-[0-9]{4}-[A-Z0-9]{4}$')
+        && validCliente(d.cliente)
+        && str(d.projeto, 0, 160)
+        && str(d.cidade, 0, 100)
+        && d.itens is list && d.itens.size() >= 1 && d.itens.size() <= 10
+        && d.subtotal is number && d.subtotal >= 0 && d.subtotal <= 100000000
+        && d.artPct is number && d.artPct >= 0 && d.artPct <= 20
+        && d.art is number && d.art >= 0 && d.art <= 20000000
         && d.total is number && d.total >= 0 && d.total <= 100000000
         && d.totalPorM2 is number && d.totalPorM2 >= 0 && d.totalPorM2 <= 100000
         && d.status == 'novo'
         && d.createdAt == request.time;
     }
 
+    function validEdicaoOrcamento(d, old) {
+      return validOrcBase(d)
+        && old.uid == request.auth.uid
+        && d.uid == old.uid
+        && d.diff(old).affectedKeys().hasOnly(['cliente', 'projeto', 'cidade', 'itens', 'subtotal', 'artPct', 'art', 'total', 'totalPorM2', 'pagamento', 'descPct', 'desc', 'updatedAt'])
+        && d.updatedAt == request.time;
+    }
+
+    // Admin: muda só status/notas (inclusive em orçamentos antigos anônimos, sem uid)
+    // ou edita o orçamento completo mantendo uid, numero e createdAt.
+    function adminStatusNotas(d, old) {
+      return d.diff(old).affectedKeys().hasOnly(['status', 'notas', 'updatedAt'])
+        && d.status in ['novo', 'em análise', 'enviado', 'aprovado', 'recusado']
+        && (!('notas' in d) || str(d.notas, 0, 5000))
+        && d.updatedAt == request.time;
+    }
+
+    function validAdminOrcamento(d, old) {
+      return adminStatusNotas(d, old)
+        || (validOrcBase(d)
+            && d.uid == old.get('uid', '')
+            && d.status in ['novo', 'em análise', 'enviado', 'aprovado', 'recusado']
+            && (!('notas' in d) || str(d.notas, 0, 5000))
+            && d.numero == old.numero
+            && d.createdAt == old.createdAt
+            && d.updatedAt == request.time);
+    }
+
+    function validAdminOrcamentoObra(d, old) {
+      return adminStatusNotas(d, old)
+        || (validObraBase(d)
+            && d.uid == old.uid
+            && d.status in ['novo', 'em análise', 'enviado', 'aprovado', 'recusado']
+            && (!('notas' in d) || str(d.notas, 0, 5000))
+            && d.numero == old.numero
+            && d.createdAt == old.createdAt
+            && d.updatedAt == request.time);
+    }
+
+    function num(v, mn, mx) {
+      return v is number && v >= mn && v <= mx;
+    }
+
+    function validObraBase(d) {
+      return d.keys().hasOnly(['numero', 'uid', 'cliente', 'cidade', 'tipo', 'pavimentos', 'peDireito', 'regime', 'bdi', 'sinapiRef', 'terreno', 'muro', 'entradas', 'ambientes', 'etapas', 'areaConstruida', 'custoDireto', 'ajusteCub', 'cobertura', 'telha', 'mezanino', 'piscina', 'modo', 'areaAlvo', 'contencao', 'obra', 'clienteObra', 'total', 'totalPorM2', 'status', 'notas', 'createdAt', 'updatedAt'])
+        && d.keys().hasAll(['numero', 'uid', 'cliente', 'cidade', 'tipo', 'pavimentos', 'regime', 'bdi', 'sinapiRef', 'ambientes', 'etapas', 'areaConstruida', 'custoDireto', 'total', 'totalPorM2', 'status', 'createdAt'])
+        && d.numero is string && d.numero.matches('^OBR-[0-9]{4}-[A-Z0-9]{4}$')
+        && validCliente(d.cliente)
+        && str(d.cidade, 0, 100)
+        && (!('obra' in d) || str(d.obra, 0, 160))
+        && (!('clienteObra' in d) || str(d.clienteObra, 0, 120))
+        && d.tipo in ['baixo', 'medio', 'alto', 'galpao', 'galpao_ind', 'galpao_com', 'muro_contencao']
+        && d.pavimentos is int && d.pavimentos >= 1 && d.pavimentos <= 4
+        && d.regime in ['d', 'nd']
+        && num(d.bdi, 0, 60)
+        && str(d.sinapiRef, 1, 10)
+        && (!('terreno' in d) || (d.terreno is map && d.terreno.size() <= 2))
+        && (!('muro' in d) || (d.muro is map && d.muro.size() <= 3))
+        && (!('entradas' in d) || (d.entradas is map && d.entradas.size() <= 5))
+        && (!('peDireito' in d) || num(d.peDireito, 0, 30))
+        && (!('cobertura' in d) || d.cobertura in ['simples', 'completa'])
+        && (!('telha' in d) || d.telha in ['simples', 'termo'])
+        && (!('mezanino' in d) || num(d.mezanino, 0, 100000))
+        && (!('piscina' in d) || (d.piscina is map
+              && d.piscina.keys().hasOnly(['comprimento', 'largura', 'profundidade'])
+              && d.piscina.keys().hasAll(['comprimento', 'largura', 'profundidade'])
+              && num(d.piscina.comprimento, 0.5, 30) && num(d.piscina.largura, 0.5, 15) && num(d.piscina.profundidade, 0.3, 3)))
+        && (!('contencao' in d) || (d.contencao is map
+              && d.contencao.keys().hasOnly(['sistema', 'comprimento', 'altura'])
+              && d.contencao.keys().hasAll(['sistema', 'comprimento', 'altura'])
+              && d.contencao.sistema in ['cortina', 'bloco']
+              && num(d.contencao.comprimento, 1, 1000) && num(d.contencao.altura, 0.5, 6)))
+        && ((d.tipo == 'muro_contencao') == ('contencao' in d))
+        && (!('modo' in d) || d.modo in ['simples', 'avancado'])
+        && (!('areaAlvo' in d) || num(d.areaAlvo, 0, 100000))
+        && (!('ajusteCub' in d) || num(d.ajusteCub, -1000000000, 1000000000))
+        && d.ambientes is list && (d.tipo == 'muro_contencao' || d.ambientes.size() >= 1) && d.ambientes.size() <= 40
+        && d.etapas is list && d.etapas.size() >= 1 && d.etapas.size() <= 19
+        && num(d.areaConstruida, 0, 100000)
+        && num(d.custoDireto, 0, 1000000000)
+        && num(d.total, 0, 1000000000)
+        && num(d.totalPorM2, 0, 100000);
+    }
+
+    function validNovoOrcamentoObra(d) {
+      return validObraBase(d)
+        && d.uid == request.auth.uid
+        && !('notas' in d)
+        && d.status == 'novo'
+        && d.createdAt == request.time
+        && !('updatedAt' in d);
+    }
+
+    function validEdicaoOrcamentoObra(d, old) {
+      return !d.diff(old).affectedKeys().hasAny(['uid', 'numero', 'createdAt', 'status', 'notas'])
+        && old.uid == request.auth.uid
+        && d.updatedAt == request.time
+        && validObraBase(d);
+    }
+
+    function validPerfil(d) {
+      return d.keys().hasOnly(['nome', 'telefone', 'email', 'createdAt', 'updatedAt'])
+        && str(d.nome, 0, 120) && str(d.telefone, 0, 40) && str(d.email, 0, 120)
+        && d.email == request.auth.token.email;
+    }
+
     match /orcamentos/{orcamentoId} {
-      allow create: if validNovoOrcamento(request.resource.data);
-      allow read, update, delete: if isAdmin();
+      allow create: if (request.auth != null && validNovoOrcamento(request.resource.data))
+        || validLead(request.resource.data);
+      allow read: if isAdmin() || (request.auth != null && resource.data.get('uid', '') == request.auth.uid);
+      allow update: if (request.auth != null && resource.data.get('uid', '') == request.auth.uid
+            && validEdicaoOrcamento(request.resource.data, resource.data))
+        || (isAdmin() && validAdminOrcamento(request.resource.data, resource.data));
+      allow delete: if isAdmin() || (request.auth != null && resource.data.uid == request.auth.uid);
+    }
+
+    match /orcamentos_obra/{orcamentoId} {
+      allow create: if request.auth != null && validNovoOrcamentoObra(request.resource.data);
+      allow read: if isAdmin() || (request.auth != null && resource.data.uid == request.auth.uid);
+      allow update: if (request.auth != null && resource.data.get('uid', '') == request.auth.uid
+            && validEdicaoOrcamentoObra(request.resource.data, resource.data))
+        || (isAdmin() && validAdminOrcamentoObra(request.resource.data, resource.data));
+      allow delete: if isAdmin() || (request.auth != null && resource.data.uid == request.auth.uid);
+    }
+
+    match /users/{uid} {
+      allow read: if isAdmin() || (request.auth != null && request.auth.uid == uid);
+      allow create, update: if request.auth != null && request.auth.uid == uid && validPerfil(request.resource.data);
+      allow delete: if request.auth != null && request.auth.uid == uid;
+    }
+
+    // Configurações do site (calculadora de honorários / proposta): leitura pública, escrita só do administrador
+    function validConfig(d) {
+      return d.keys().hasOnly(['artPct', 'descPct', 'descMax', 'validade', 'prazo', 'obs', 'whatsapp', 'fone', 'email', 'pagAdm', 'precos', 'updatedAt'])
+        && d.keys().hasAll(['artPct', 'descPct', 'descMax', 'validade', 'prazo', 'whatsapp', 'precos', 'updatedAt'])
+        && num(d.artPct, 0, 20)
+        && num(d.descPct, 0, 50) && num(d.descMax, 0, 50) && d.descPct <= d.descMax
+        && d.validade is int && d.validade >= 1 && d.validade <= 365
+        && d.prazo is int && d.prazo >= 1 && d.prazo <= 365
+        && (!('obs' in d) || str(d.obs, 0, 2000))
+        && d.whatsapp is string && d.whatsapp.matches('^[0-9]{10,15}$')
+        && (!('fone' in d) || str(d.fone, 0, 40))
+        && (!('email' in d) || str(d.email, 0, 120))
+        && (!('pagAdm' in d) || (d.pagAdm is map
+              && d.pagAdm.keys().hasOnly(['pix', 'banco', 'titular'])
+              && (!('pix' in d.pagAdm) || str(d.pagAdm.pix, 0, 120))
+              && (!('banco' in d.pagAdm) || str(d.pagAdm.banco, 0, 120))
+              && (!('titular' in d.pagAdm) || str(d.pagAdm.titular, 0, 120))))
+        && d.precos is map && d.precos.size() <= 20
+        && d.updatedAt == request.time;
+    }
+
+    match /config/{docId} {
+      allow read: if docId == 'site';
+      allow write: if isAdmin() && docId == 'site' && validConfig(request.resource.data);
     }
 
     // Todo o resto fica fechado.

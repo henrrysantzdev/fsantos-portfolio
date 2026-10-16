@@ -1,12 +1,16 @@
 import { useEffect, useMemo, useState } from "react"
-import { Button, buttonVariants } from "@/components/ui/button"
+import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { SiteFooter } from "@/components/layout/SiteFooter"
 import { SiteHeader } from "@/components/layout/SiteHeader"
+import { CircuitEditor, defaultCircuits, readCircuits, type Circuit } from "@/components/ferramentas/CircuitEditor"
+import { ProjectCta } from "@/components/ferramentas/ProjectCta"
+import { PageHero } from "@/components/ferramentas/PageHero"
 import { ESTACAS, TRELICADA, TOOLS, f } from "@/lib/tools-engine"
-import { cn } from "@/lib/utils"
+import { EXTRA_TOOLS } from "@/lib/tools-extra"
+import { parseDecimal } from "@/lib/utils"
 
 type Tool = {
   id: string
@@ -15,15 +19,17 @@ type Tool = {
   refs: string[]
   hip: string[]
   table?: boolean
+  circ?: boolean
   inp: [string, string, string, string | number, number?, number?, string[]?][]
-  calc: (values: Record<string, number | string>) => {
+  calc: (values: Record<string, unknown>) => {
     steps: [string, string, string][]
     res: [string, string][]
     warn: string[]
+    html?: string
   }
 }
 
-const tools = TOOLS as Tool[]
+const tools = [...TOOLS, ...EXTRA_TOOLS] as Tool[]
 
 function formatDefault(value: string | number) {
   return String(value).replace(".", ",")
@@ -47,6 +53,7 @@ export function FerramentasPage() {
   const tool = tools.find((item) => item.id === toolId) ?? tools[0]
   const [values, setValues] = useState<Record<string, string>>(() => defaultsFor(initialTool))
   const [memorial, setMemorial] = useState(false)
+  const [circuits, setCircuits] = useState<Circuit[]>(defaultCircuits)
 
   useEffect(() => {
     history.replaceState(null, "", `#${tool.id}`)
@@ -62,24 +69,30 @@ export function FerramentasPage() {
   function read() {
     const parsed: Record<string, number | string> = {}
     const errors: string[] = []
+    let circ: ReturnType<typeof readCircuits>["parsed"] | undefined
+    if (tool.circ) {
+      const circuitData = readCircuits(circuits)
+      circ = circuitData.parsed
+      errors.push(...circuitData.errors)
+    }
     tool.inp.forEach(([id, label, , , min, max, options]) => {
       const raw = values[id] ?? ""
       if (options) {
         parsed[id] = raw
         return
       }
-      const number = parseFloat(String(raw).replace(",", "."))
+      const number = parseDecimal(raw)
       const lo = min ?? (id === "n" ? 0 : 1e-9)
       const hi = max ?? 1e7
       if (!Number.isFinite(number) || number < lo || number > hi) {
         errors.push(`${label}: valor inválido${min != null || max != null ? ` (${min ?? "…"} a ${max ?? "…"})` : " (deve ser > 0)"}`)
       } else parsed[id] = number
     })
-    return { parsed, errors }
+    return { parsed, circ, errors }
   }
 
-  const { parsed, errors } = read()
-  const result = errors.length ? null : tool.calc({ ...parsed })
+  const { parsed, circ, errors } = read()
+  const result = errors.length ? null : tool.calc({ ...parsed, circ })
 
   function changeEstaca(tipo: string) {
     const pair = (ESTACAS as Record<string, number[]>)[tipo]
@@ -93,22 +106,20 @@ export function FerramentasPage() {
   return (
     <>
       <SiteHeader />
-      <section className="border-b border-white/10 px-4 py-12">
-        <div className="mx-auto max-w-6xl">
-          <h1 className="border-l-4 border-primary pl-3 text-3xl font-semibold">Ferramentas de pré-dimensionamento</h1>
-          <p className="mt-3 max-w-2xl text-muted-foreground">
-            Calculadoras gratuitas para estimativas iniciais em concreto armado e estruturas metálicas, com memória de cálculo em PDF.
-          </p>
-          <p className="mt-3 text-sm text-primary">Pré-dimensionamento orientativo — não substitui projeto estrutural com ART.</p>
-        </div>
-      </section>
-      <main className="mx-auto grid max-w-6xl gap-6 px-4 py-8 lg:grid-cols-[240px_1fr]">
-        <div className="lg:hidden">
+      <PageHero
+        eyebrow="Acesso livre"
+        title="Ferramentas de pré-dimensionamento"
+        note="Pré-dimensionamento orientativo — não substitui projeto estrutural com ART."
+      >
+        Calculadoras gratuitas para estimativas iniciais em concreto armado e estruturas metálicas, com memória de cálculo em PDF.
+      </PageHero>
+      <main className="mx-auto grid max-w-6xl gap-6 px-5 py-8 lg:grid-cols-[240px_1fr]">
+        <div className="min-w-0 lg:hidden">
           <Label className="flex-col items-stretch gap-1.5 text-muted-foreground">
             Calculadora
             <Select value={tool.id} onValueChange={(next) => next && selectTool(next)}>
-              <SelectTrigger className="h-8 w-full">
-                <SelectValue>{(value) => tools.find((item) => item.id === value)?.t}</SelectValue>
+              <SelectTrigger className="w-full min-w-0">
+                <SelectValue className="block min-w-0 truncate">{(value) => tools.find((item) => item.id === value)?.t}</SelectValue>
               </SelectTrigger>
               <SelectContent>
                 {grouped.map(({ group, items }) => (
@@ -128,14 +139,14 @@ export function FerramentasPage() {
         <aside className="hidden space-y-4 lg:block">
           {grouped.map(({ group, items }) => (
             <div key={group}>
-              <p className="mb-2 text-xs tracking-wide text-muted-foreground uppercase">{group}</p>
+              <p className="mb-2 font-mono text-[11px] font-semibold tracking-[0.08em] text-primary-soft uppercase">{group}</p>
               <div className="flex flex-col gap-1">
                 {items.map((item) => (
                   <Button
                     key={item.id}
                     type="button"
                     variant={item.id === tool.id ? "default" : "ghost"}
-                    className="justify-start"
+                    className="h-10 justify-start px-3"
                     onClick={() => selectTool(item.id)}
                   >
                     {item.t}
@@ -145,11 +156,11 @@ export function FerramentasPage() {
             </div>
           ))}
         </aside>
-        <section>
-          <h2 className="text-2xl font-semibold">{tool.t}</h2>
-          <p className="text-sm text-primary">{tool.g}</p>
-          <div className="mt-4 grid gap-6 lg:grid-cols-2">
-            <form className="space-y-3" onSubmit={(event) => event.preventDefault()}>
+        <section className="min-w-0">
+          <p className="mb-1 font-mono text-[11px] font-bold tracking-[0.08em] text-primary-soft uppercase">{tool.g}</p>
+          <h2 className="text-2xl font-extrabold tracking-tight text-balance md:text-[28px]">{tool.t}</h2>
+          <div className="mt-5 grid gap-6 lg:grid-cols-2">
+            <form className="min-w-0 space-y-3 rounded-2xl bg-card p-4 shadow-xl md:p-6" onSubmit={(event) => event.preventDefault()}>
               {tool.inp.map(([id, label, unit, , , , options]) => (
                 <Label key={id} className="flex-col items-stretch gap-1.5 text-muted-foreground">
                   {label}
@@ -163,8 +174,8 @@ export function FerramentasPage() {
                         else setValues((current) => ({ ...current, [id]: next }))
                       }}
                     >
-                      <SelectTrigger className="h-8 w-full">
-                        <SelectValue />
+                      <SelectTrigger className="w-full min-w-0">
+                        <SelectValue className="block min-w-0 truncate" />
                       </SelectTrigger>
                       <SelectContent>
                         {options.map((option) => (
@@ -183,9 +194,10 @@ export function FerramentasPage() {
                   )}
                 </Label>
               ))}
+              {tool.circ && <CircuitEditor circuits={circuits} onChange={setCircuits} />}
               {tool.table && (
-                <details className="rounded-lg border border-white/10 p-3">
-                  <summary>Tabela de vãos máximos (editável)</summary>
+                <details className="rounded-lg bg-background/60 px-3">
+                  <summary className="flex min-h-11 cursor-pointer items-center">Tabela de vãos máximos (editável)</summary>
                   <div className="overflow-x-auto">
                   <table className="mt-3 w-full text-sm">
                     <thead>
@@ -205,7 +217,7 @@ export function FerramentasPage() {
                               <Input
                                 value={f(cell, 1)}
                                 onChange={(event) => {
-                                  const number = parseFloat(event.target.value.replace(",", "."))
+                                  const number = parseDecimal(event.target.value)
                                   if (number > 0) TRELICADA.linhas[rowIndex][cellIndex + 1] = number
                                   setValues((current) => ({ ...current }))
                                 }}
@@ -219,32 +231,32 @@ export function FerramentasPage() {
                   </div>
                 </details>
               )}
-              <details className="rounded-lg border border-white/10 p-3">
-                <summary>Hipóteses adotadas</summary>
-                <ul className="mt-2 list-disc pl-5 text-sm text-muted-foreground">
+              <details className="rounded-lg bg-background/60 px-3">
+                <summary className="flex min-h-11 cursor-pointer items-center">Hipóteses adotadas</summary>
+                <ul className="list-disc pb-3 pl-5 text-sm text-muted-foreground">
                   {tool.hip.map((item) => (
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
               </details>
             </form>
-            <div className="rounded-xl border border-white/10 bg-card p-4">
+            <div className="min-w-0 self-start rounded-2xl bg-secondary p-4 shadow-2xl md:p-6">
               {errors.length ? (
                 <p className="text-sm text-destructive">{errors.join(" ")}</p>
               ) : result ? (
                 <>
-                  <h3 className="text-lg font-semibold">Resultado</h3>
+                  <p className="font-mono text-[11px] font-bold tracking-[0.08em] text-primary-soft uppercase">Resultado</p>
                   <dl className="mt-3 space-y-2">
                     {result.res.map(([label, value]) => (
-                      <div key={label} className="flex justify-between gap-4 border-b border-white/10 pb-2">
+                      <div key={label} className="flex justify-between gap-4 border-b border-border pb-2 text-sm md:text-base">
                         <dt className="text-muted-foreground">{label}</dt>
-                        <dd className="text-right font-medium">{value}</dd>
+                        <dd className="text-right font-semibold">{value}</dd>
                       </div>
                     ))}
                   </dl>
-                  {result.warn.length > 0 && <p className="mt-3 text-sm text-primary">{result.warn.join(" ")}</p>}
+                  {result.warn.length > 0 && <p className="mt-3 text-sm text-primary-soft">{result.warn.join(" ")}</p>}
                   <details open className="mt-4">
-                    <summary>Passo a passo</summary>
+                    <summary className="flex min-h-11 cursor-pointer items-center font-semibold">Passo a passo</summary>
                     <ol className="mt-2 list-decimal space-y-3 pl-5 text-sm">
                       {result.steps.map(([title, formula, value]) => (
                         <li key={title}>
@@ -257,7 +269,12 @@ export function FerramentasPage() {
                       ))}
                     </ol>
                   </details>
-                  <Button type="button" className="mt-4" onClick={() => setMemorial(true)} disabled={!result.steps.length}>
+                  <Button
+                    type="button"
+                    className="mt-4 h-12 w-full px-6 font-semibold shadow-[0_6px_20px_rgb(234_132_39/30%)] sm:w-auto"
+                    onClick={() => setMemorial(true)}
+                    disabled={!result.steps.length}
+                  >
                     Gerar memória de cálculo
                   </Button>
                   <p className="mt-3 text-xs text-muted-foreground">
@@ -267,25 +284,10 @@ export function FerramentasPage() {
               ) : null}
             </div>
           </div>
+          {result?.html && <div className="tool-report mt-6 rounded-2xl bg-card p-4 shadow-xl md:p-6" dangerouslySetInnerHTML={{ __html: result.html }} />}
         </section>
       </main>
-      <section className="mx-auto max-w-6xl px-4 py-12 text-center">
-        <h2 className="text-2xl font-semibold">Precisa do projeto completo?</h2>
-        <p className="mt-2 text-muted-foreground">Projeto estrutural, fundações, instalações e arquitetura com ART.</p>
-        <div className="mt-4 flex flex-wrap justify-center gap-3">
-          <a href="/#orcamento" className={cn(buttonVariants(), "h-10 px-4")}>
-            Gerar orçamento
-          </a>
-          <a
-            href="https://wa.me/5592992262786"
-            target="_blank"
-            rel="noopener"
-            className={cn(buttonVariants({ variant: "outline" }), "h-10 border-primary px-4 text-primary")}
-          >
-            Conversar no WhatsApp
-          </a>
-        </div>
-      </section>
+      <ProjectCta />
       <SiteFooter />
       {memorial && result && (
         <Memorial tool={tool} values={parsed} result={result} onClose={() => setMemorial(false)} />
@@ -309,10 +311,10 @@ function Memorial({
   return (
     <div className="proposta-root fixed inset-0 z-50 overflow-auto bg-white text-neutral-900">
       <article className="mx-auto max-w-3xl px-6 py-10 font-serif">
-        <header className="flex items-center gap-4 border-b-4 border-[#0b1a30] pb-3">
-          <img src="/assets/img/logo-fsantos.png" alt="" className="h-16" />
+        <header className="flex items-center gap-4 border-b-4 border-[#10253f] pb-3">
+          <img src="/assets/img/logo-kf.png" alt="" className="h-16" />
           <div>
-            <strong>FSantos Engenharia — Santos Projetos & Orçamentos</strong>
+            <strong>KF Engenharia</strong>
             <br />
             Eng. Civil Francirley Pereira Santos — CREA 31.410-AM
           </div>
@@ -348,7 +350,7 @@ function Memorial({
         <h3 className="mt-6 font-sans text-lg">3. Cálculo passo a passo</h3>
         <table className="mt-2 w-full border-collapse text-sm">
           <thead>
-            <tr className="bg-[#0b1a30] text-white">
+            <tr className="bg-[#10253f] text-white">
               <th className="border border-neutral-400 px-2 py-1 text-left">Etapa</th>
               <th className="border border-neutral-400 px-2 py-1 text-left">Fórmula</th>
               <th className="border border-neutral-400 px-2 py-1 text-left">Resultado</th>
@@ -375,6 +377,7 @@ function Memorial({
             ))}
           </tbody>
         </table>
+        {result.html && <div className="tool-report print-report mt-4" dangerouslySetInnerHTML={{ __html: result.html }} />}
         {result.warn.length > 0 && (
           <p className="mt-3">
             <b>Observações:</b> {result.warn.join(" ")}

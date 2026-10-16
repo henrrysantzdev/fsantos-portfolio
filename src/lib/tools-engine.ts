@@ -1,5 +1,5 @@
 // @ts-nocheck
-// Ferramentas de pré-dimensionamento — FSantos Engenharia
+// Ferramentas de pré-dimensionamento — KF Engenharia
 // Regras práticas (NBR 6118/6122/8800 simplificadas). Resultados orientativos.
 export const E_ACO=200000; // MPa
 // Perfis W (aprox., base catálogo Gerdau — conferir catálogo): A cm², Ix cm4, Zx cm3, rx cm, ry cm, kg/m

@@ -1,13 +1,15 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-@import "@fontsource-variable/geist";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
     --font-heading: var(--font-sans);
-    --font-sans: 'Geist Variable', sans-serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --color-primary-soft: var(--primary-soft);
+    --color-surface-lowest: var(--surface-lowest);
     --color-sidebar-ring: var(--sidebar-ring);
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -49,30 +51,32 @@
 }
 
 :root {
-    --background: #0b1a30;
-    --foreground: #e8edf5;
-    --card: #13284a;
-    --card-foreground: #e8edf5;
-    --popover: #13284a;
-    --popover-foreground: #e8edf5;
-    --primary: #f2b632;
-    --primary-foreground: #0b1a30;
-    --secondary: #1c3358;
-    --secondary-foreground: #e8edf5;
-    --muted: #1c3358;
-    --muted-foreground: #9fb0c8;
-    --accent: #1c3358;
-    --accent-foreground: #f2b632;
-    --destructive: #e06a5a;
-    --border: rgb(255 255 255 / 12%);
-    --input: rgb(255 255 255 / 18%);
-    --ring: #f2b632;
+    --background: #021429;
+    --foreground: #d4e3ff;
+    --card: #0e2036;
+    --card-foreground: #d4e3ff;
+    --popover: #192b41;
+    --popover-foreground: #d4e3ff;
+    --primary: #ea8427;
+    --primary-foreground: #2f1400;
+    --primary-soft: #ffb781;
+    --surface-lowest: #000e22;
+    --secondary: #192b41;
+    --secondary-foreground: #d4e3ff;
+    --muted: #192b41;
+    --muted-foreground: #b4c7ea;
+    --accent: #192b41;
+    --accent-foreground: #ffb781;
+    --destructive: #ffb4ab;
+    --border: rgb(212 227 255 / 10%);
+    --input: rgb(212 227 255 / 16%);
+    --ring: #ea8427;
     --chart-1: oklch(0.87 0 0);
     --chart-2: oklch(0.556 0 0);
     --chart-3: oklch(0.439 0 0);
     --chart-4: oklch(0.371 0 0);
     --chart-5: oklch(0.269 0 0);
-    --radius: 0.625rem;
+    --radius: 0.5rem;
     --sidebar: oklch(0.985 0 0);
     --sidebar-foreground: oklch(0.145 0 0);
     --sidebar-primary: oklch(0.205 0 0);
@@ -84,24 +88,26 @@
 }
 
 .dark {
-    --background: #0b1a30;
-    --foreground: #e8edf5;
-    --card: #13284a;
-    --card-foreground: #e8edf5;
-    --popover: #13284a;
-    --popover-foreground: #e8edf5;
-    --primary: #f2b632;
-    --primary-foreground: #0b1a30;
-    --secondary: #1c3358;
-    --secondary-foreground: #e8edf5;
-    --muted: #1c3358;
-    --muted-foreground: #9fb0c8;
-    --accent: #1c3358;
-    --accent-foreground: #f2b632;
-    --destructive: #e06a5a;
-    --border: rgb(255 255 255 / 12%);
-    --input: rgb(255 255 255 / 18%);
-    --ring: #f2b632;
+    --background: #021429;
+    --foreground: #d4e3ff;
+    --card: #0e2036;
+    --card-foreground: #d4e3ff;
+    --popover: #192b41;
+    --popover-foreground: #d4e3ff;
+    --primary: #ea8427;
+    --primary-foreground: #2f1400;
+    --primary-soft: #ffb781;
+    --surface-lowest: #000e22;
+    --secondary: #192b41;
+    --secondary-foreground: #d4e3ff;
+    --muted: #192b41;
+    --muted-foreground: #b4c7ea;
+    --accent: #192b41;
+    --accent-foreground: #ffb781;
+    --destructive: #ffb4ab;
+    --border: rgb(212 227 255 / 10%);
+    --input: rgb(212 227 255 / 16%);
+    --ring: #ea8427;
     --chart-1: oklch(0.87 0 0);
     --chart-2: oklch(0.556 0 0);
     --chart-3: oklch(0.439 0 0);
@@ -146,4 +152,234 @@
   .no-print {
     display: none !important;
   }
+  .print-area,
+  .print-area * {
+    visibility: visible;
+    color: #111 !important;
+    background: transparent !important;
+    border-color: #999 !important;
+  }
+  .print-area {
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 100%;
+  }
+  .print-area article,
+  .print-area .gstep {
+    break-inside: avoid;
+  }
 }
+
+/* Tabelas geradas pelas calculadoras (traço e dimensionamento elétrico). */
+.tool-report h4 {
+  margin: 1.25rem 0 0.5rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+.tool-report .ftrw {
+  overflow-x: auto;
+}
+.tool-report table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+.tool-report th,
+.tool-report td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+  vertical-align: top;
+}
+.tool-report th {
+  background: var(--muted);
+  white-space: nowrap;
+}
+.tool-report .kv td:first-child {
+  width: 40%;
+  color: var(--muted-foreground);
+}
+.proposta-root .tool-report h4 {
+  color: #10253f;
+}
+.proposta-root .tool-report th {
+  background: #10253f;
+  color: #fff;
+}
+.proposta-root .tool-report th,
+.proposta-root .tool-report td {
+  border-color: #a3a3a3;
+}
+.proposta-root .tool-report .kv td:first-child {
+  color: inherit;
+}
+
+/* Guia de execução: HTML e ilustrações gerados por src/lib/guia. */
+.guia-content summary {
+  list-style: none;
+}
+.guia-content summary::-webkit-details-marker {
+  display: none;
+}
+.guia-content summary::after {
+  content: "▾";
+  color: var(--primary);
+  transition: transform 0.2s;
+}
+.guia-content details[open] > summary::after {
+  transform: rotate(180deg);
+}
+.guia-content .ghd {
+  display: flex;
+  justify-content: flex-end;
+}
+.guia-content .ghd h2 {
+  display: none;
+}
+.guia-content .gnor {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+.guia-content .gsteps {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.guia-content .gstep {
+  display: grid;
+  grid-template-columns: minmax(0, 2.1fr) minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  background: var(--card);
+  padding: 0.75rem;
+}
+.guia-content .gfig {
+  margin: 0;
+}
+.guia-content .gsvg {
+  width: 100% !important;
+  height: auto;
+  aspect-ratio: 16 / 10;
+}
+.guia-content .gtx h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+.guia-content .gtx h3 span {
+  display: inline-flex;
+  min-width: 1.75rem;
+  height: 1.75rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  font-weight: 700;
+}
+.guia-content .gtx p {
+  font-size: 0.9rem;
+}
+.guia-content .gchk,
+.guia-content .gerr,
+.guia-content .gseg {
+  margin-top: 0.5rem;
+  border-left: 3px solid;
+  border-radius: 0.5rem;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.84rem;
+}
+.guia-content .gchk {
+  border-color: #2ee59d;
+  background: rgb(46 229 157 / 10%);
+}
+.guia-content .gerr {
+  border-color: var(--destructive);
+  background: rgb(224 106 90 / 12%);
+}
+.guia-content .gseg {
+  border-color: var(--primary);
+  background: rgb(234 132 39 / 12%);
+}
+.guia-content .gchk ul,
+.guia-content .gerr ul,
+.guia-content .gseg ul {
+  margin: 0.2rem 0;
+  padding-left: 1.1rem;
+  list-style: disc;
+}
+.guia-content .gmat {
+  margin-top: 1rem;
+}
+.guia-content .gmat h3 {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+.guia-content .gmatw {
+  overflow-x: auto;
+}
+.guia-content .gmat table {
+  width: 100%;
+  min-width: 40rem;
+  border-collapse: collapse;
+  font-size: 0.84rem;
+}
+.guia-content .gmat th,
+.guia-content .gmat td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+  vertical-align: top;
+}
+.guia-content .gmat th {
+  background: var(--muted);
+}
+.guia-content .gico {
+  display: block;
+  width: 2.75rem;
+  height: 2.75rem;
+}
+.guia-content .fnote {
+  margin-top: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--muted-foreground);
+}
+@media (max-width: 900px) {
+  .guia-content .gstep {
+    grid-template-columns: 1fr;
+  }
+  .guia-content .gpr {
+    height: 2.75rem;
+  }
+}
+@media print {
+  .guia-content summary::after,
+  .guia-content .gpr {
+    display: none;
+  }
+  .guia-content .ghd h2 {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  .guia-content .guia-sec {
+    break-before: page;
+  }
+  .guia-content .gstep {
+    grid-template-columns: 110mm 1fr;
+  }
+}
+/* KF identity: preserve the supplied logo and its proportions on every surface. */
+img[src="/assets/img/logo-kf.png"] {
+  object-fit: contain;
+  max-width: 100%;
+  background: transparent;
+  border-radius: 0;
+}
+header img[src="/assets/img/logo-kf.png"] { flex-shrink: 0; max-width: 160px; height: auto; }

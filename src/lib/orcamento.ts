@@ -1,9 +1,9 @@
 export const ORC_CONFIG = {
-  empresa: "Santos Projetos & Orçamentos",
+  empresa: "KF Engenharia",
   responsavel: "Eng. Civil Francirley Pereira Santos",
   crea: "31.410-AM",
   fone: "(92) 99226-2786",
-  email: "leyfps@gmail.com",
+  email: "kfengenhariacontato@gmail.com",
   local: "Manaus/AM",
   whatsapp: "5592992262786",
   disciplinas: [

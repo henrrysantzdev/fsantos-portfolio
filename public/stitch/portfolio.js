@@ -1,7 +1,15 @@
 const PAGE_SIZE = 9
 const state = { category: "all", shown: PAGE_SIZE, projects: [], categories: [] }
-const tabOn = "portfolio-tab px-4 py-2 rounded-xl font-label-sm text-xs font-bold transition-all bg-primary-container text-white shadow-md"
-const tabOff = "portfolio-tab px-4 py-2 rounded-xl font-label-sm text-xs font-medium transition-all bg-navy-800 text-slate-300 hover:text-white hover:bg-navy-700 border border-slate-700"
+const tabOn = "portfolio-tab px-4 py-2 rounded-full font-title-md text-body-md whitespace-nowrap transition-colors bg-white text-surface font-bold"
+const tabOff = "portfolio-tab px-4 py-2 rounded-full font-title-md text-body-md whitespace-nowrap transition-colors bg-surface-container text-secondary hover:text-on-surface"
+const badgeBase = "portfolio-category absolute bottom-3 left-3 px-3 py-1 rounded font-label-badge text-label-badge font-bold"
+const badgeTone = {
+  res: "bg-tertiary-container text-on-tertiary-container",
+  com: "bg-primary-container text-on-primary",
+  ins: "bg-tertiary text-on-tertiary",
+  inf: "bg-secondary text-on-secondary",
+  pub: "bg-secondary-container text-on-secondary-container",
+}
 
 const filters = document.querySelector("#portfolio-filter-buttons")
 const grid = document.querySelector("#portfolio-cards-grid")
@@ -28,6 +36,10 @@ function imageWord(total) {
 
 function imageUrl(path) {
   return `/${path.replace(/^\//, "")}`
+}
+
+function thumbUrl(path) {
+  return `/assets/img/thumb/${path.split("/").pop()}`
 }
 
 function categoryLabel(id) {
@@ -69,12 +81,17 @@ function createCard(project, eager) {
   const image = card.querySelector("img")
   const open = card.querySelector("button")
   const total = project.img.length
-  image.src = imageUrl(project.img[0])
+  image.addEventListener("error", () => { image.src = imageUrl(project.img[0]) }, { once: true })
+  image.src = thumbUrl(project.img[0])
+  image.width = 640
+  image.height = 400
   image.alt = ""
   image.decoding = "async"
   image.loading = eager ? "eager" : "lazy"
   card.querySelector(".portfolio-count").textContent = imageWord(total)
-  card.querySelector(".portfolio-category").textContent = categoryLabel(project.c)
+  const badge = card.querySelector(".portfolio-category")
+  badge.className = `${badgeBase} ${badgeTone[project.c] ?? badgeTone.res}`
+  badge.textContent = categoryLabel(project.c)
   card.querySelector("h3").textContent = project.t
   card.querySelector("p").textContent = project.s
   card.dataset.category = project.c

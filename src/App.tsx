@@ -4,6 +4,9 @@ import { HomePage } from "@/pages/HomePage"
 
 const FerramentasPage = lazy(() => import("@/pages/FerramentasPage").then((module) => ({ default: module.FerramentasPage })))
 const PainelPage = lazy(() => import("@/pages/PainelPage").then((module) => ({ default: module.PainelPage })))
+const TabelasPage = lazy(() => import("@/pages/TabelasPage").then((module) => ({ default: module.TabelasPage })))
+const GuiaPage = lazy(() => import("@/pages/GuiaPage").then((module) => ({ default: module.GuiaPage })))
+const OrcamentoObraPage = lazy(() => import("@/pages/OrcamentoObraPage").then((module) => ({ default: module.OrcamentoObraPage })))
 
 export function App() {
   return (
@@ -13,6 +16,9 @@ export function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/ferramentas" element={<FerramentasPage />} />
           <Route path="/painel" element={<PainelPage />} />
+          <Route path="/tabelas" element={<TabelasPage />} />
+          <Route path="/guia-execucao" element={<GuiaPage />} />
+          <Route path="/orcamento-obra" element={<OrcamentoObraPage />} />
           <Route path="*" element={<HomePage />} />
         </Routes>
       </Suspense>
