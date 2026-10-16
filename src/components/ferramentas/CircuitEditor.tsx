@@ -2,7 +2,7 @@ import type { ReactNode } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { NativeSelect } from "@/components/ui/native-select"
 import { E_CIRC0, E_LOC, E_TIPOS } from "@/lib/tools-extra"
 import { parseDecimal } from "@/lib/utils"
 
@@ -167,17 +167,12 @@ function Field({ label, wide, children }: { label: string; wide?: boolean; child
 
 function Choice({ value, options, onChange }: { value: string; options: string[][]; onChange: (value: string) => void }) {
   return (
-    <Select value={value} onValueChange={(next) => next && onChange(String(next))}>
-      <SelectTrigger className="w-full min-w-0">
-        <SelectValue className="block min-w-0 truncate">{(current) => options.find(([key]) => key === current)?.[1]}</SelectValue>
-      </SelectTrigger>
-      <SelectContent>
-        {options.map(([key, label]) => (
-          <SelectItem key={key} value={key}>
-            {label}
-          </SelectItem>
-        ))}
-      </SelectContent>
-    </Select>
+    <NativeSelect value={value} onChange={(event) => onChange(event.target.value)}>
+      {options.map(([key, label]) => (
+        <option key={key} value={key}>
+          {label}
+        </option>
+      ))}
+    </NativeSelect>
   )
 }

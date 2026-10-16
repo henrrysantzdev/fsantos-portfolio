@@ -24,7 +24,11 @@ export function PageHero({
           backgroundImage: "linear-gradient(to right, #d4e3ff 1px, transparent 1px), linear-gradient(to bottom, #d4e3ff 1px, transparent 1px)",
         }}
       />
-      <div aria-hidden="true" className="pointer-events-none absolute -top-32 -left-32 size-96 rounded-full bg-primary/10 blur-3xl" />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-48 -left-48 size-[34rem]"
+        style={{ background: "radial-gradient(closest-side, color-mix(in oklab, var(--color-primary) 10%, transparent) 45%, transparent)" }}
+      />
       <div className="relative mx-auto max-w-6xl px-5 pt-10 pb-6 md:pt-16 md:pb-8">
         <span className="mb-4 inline-flex items-center rounded-full bg-card px-3 py-1 font-mono text-[11px] leading-4 font-semibold tracking-[0.08em] text-[#9ccaff] uppercase">
           {eyebrow}

@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { NativeSelect } from "@/components/ui/native-select"
 import { SiteFooter } from "@/components/layout/SiteFooter"
 import { SiteHeader } from "@/components/layout/SiteHeader"
 import { CircuitEditor, defaultCircuits, readCircuits, type Circuit } from "@/components/ferramentas/CircuitEditor"
@@ -117,23 +117,17 @@ export function FerramentasPage() {
         <div className="min-w-0 lg:hidden">
           <Label className="flex-col items-stretch gap-1.5 text-muted-foreground">
             Calculadora
-            <Select value={tool.id} onValueChange={(next) => next && selectTool(next)}>
-              <SelectTrigger className="w-full min-w-0">
-                <SelectValue className="block min-w-0 truncate">{(value) => tools.find((item) => item.id === value)?.t}</SelectValue>
-              </SelectTrigger>
-              <SelectContent>
-                {grouped.map(({ group, items }) => (
-                  <SelectGroup key={group}>
-                    <SelectLabel>{group}</SelectLabel>
-                    {items.map((item) => (
-                      <SelectItem key={item.id} value={item.id}>
-                        {item.t}
-                      </SelectItem>
-                    ))}
-                  </SelectGroup>
-                ))}
-              </SelectContent>
-            </Select>
+            <NativeSelect value={tool.id} onChange={(event) => selectTool(event.target.value)}>
+              {grouped.map(({ group, items }) => (
+                <optgroup key={group} label={group}>
+                  {items.map((item) => (
+                    <option key={item.id} value={item.id}>
+                      {item.t}
+                    </option>
+                  ))}
+                </optgroup>
+              ))}
+            </NativeSelect>
           </Label>
         </div>
         <aside className="hidden space-y-4 lg:block">
@@ -166,25 +160,20 @@ export function FerramentasPage() {
                   {label}
                   {unit && unit !== "—" ? ` (${unit})` : ""}
                   {options ? (
-                    <Select
+                    <NativeSelect
                       value={values[id] ?? ""}
-                      onValueChange={(next) => {
-                        if (!next) return
+                      onChange={(event) => {
+                        const next = event.target.value
                         if (tool.id === "estacas" && id === "tipo") changeEstaca(next)
                         else setValues((current) => ({ ...current, [id]: next }))
                       }}
                     >
-                      <SelectTrigger className="w-full min-w-0">
-                        <SelectValue className="block min-w-0 truncate" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {options.map((option) => (
-                          <SelectItem key={option} value={option}>
-                            {option}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
+                      {options.map((option) => (
+                        <option key={option} value={option}>
+                          {option}
+                        </option>
+                      ))}
+                    </NativeSelect>
                   ) : (
                     <Input
                       inputMode="decimal"
