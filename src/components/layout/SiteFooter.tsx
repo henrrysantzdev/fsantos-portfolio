@@ -10,11 +10,11 @@ export function SiteFooter() {
               <img src="/assets/img/logo-kf-720.png" alt="KF Engenharia" width={179} height={40} loading="lazy" className="h-8 w-auto" />
             </span>
             <p className="text-sm leading-relaxed text-muted-foreground">
-              Engenharia estrutural, modelagem OpenBIM e compatibilização multidisciplinar em Manaus-AM.
+              Projetos de arquitetura, estrutura e instalações em Manaus-AM, compatibilizados em BIM e com ART.
             </p>
           </div>
           <div className="flex flex-col text-sm text-muted-foreground md:gap-2">
-            <h4 className="mb-1 text-base font-semibold text-foreground md:mb-0">Atendimento Manaus</h4>
+            <h4 className="mb-1 text-base font-semibold text-foreground md:mb-0">Atendimento</h4>
             <a href="https://wa.me/5592992262786" target="_blank" rel="noopener noreferrer" className="py-2.5 transition-colors hover:text-primary md:py-0">
               Chamar no WhatsApp
             </a>

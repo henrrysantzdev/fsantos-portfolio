@@ -1,6 +1,6 @@
 export function ProjectCta({
   title = "Precisa do projeto completo?",
-  text = "Projeto estrutural, fundações, instalações e arquitetura com ART.",
+  text = "A KF Engenharia faz os projetos de arquitetura, estrutura, fundações e instalações da sua obra, todos com ART.",
 }: {
   title?: string
   text?: string
@@ -24,7 +24,7 @@ export function ProjectCta({
             rel="noopener noreferrer"
             className="inline-flex min-h-12 items-center justify-center rounded-lg bg-secondary px-6 font-semibold shadow-md transition hover:-translate-y-0.5 hover:bg-[#25364d]"
           >
-            Conversar no WhatsApp
+            Falar no WhatsApp
           </a>
         </div>
       </div>

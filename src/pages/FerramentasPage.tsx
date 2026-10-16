@@ -111,7 +111,7 @@ export function FerramentasPage() {
         title="Ferramentas de pré-dimensionamento"
         note="Pré-dimensionamento orientativo — não substitui projeto estrutural com ART."
       >
-        Calculadoras gratuitas para estimativas iniciais em concreto armado e estruturas metálicas, com memória de cálculo em PDF.
+        Calculadoras gratuitas para estimar fundações, pilares, vigas, lajes, estruturas metálicas, contenções e instalações elétricas. Cada resultado vem com o passo a passo e a memória de cálculo em PDF.
       </PageHero>
       <main className="mx-auto grid max-w-6xl gap-6 px-5 py-8 lg:grid-cols-[240px_1fr]">
         <div className="min-w-0 lg:hidden">
